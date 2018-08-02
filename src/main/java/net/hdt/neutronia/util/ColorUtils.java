@@ -2,7 +2,6 @@ package net.hdt.neutronia.util;
 
 import com.google.common.collect.Maps;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.util.text.TextFormatting;
 
 import java.awt.Color;
 import java.util.Map;
@@ -61,28 +60,6 @@ public class ColorUtils {
         int green = (colour >> 8) & 0xFF;
         int blue = colour & 0xFF;
         return Color.RGBtoHSB(red, green, blue, null);
-    }
-
-    public static TextFormatting getClosest(int colour) {
-        return ColorUtils.getClosest(ColorUtils.toRGBFloatArray(colour));
-    }
-
-    private static TextFormatting getClosest(float[] colour) {
-        colour = ColorUtils.toHSVFloatArray(colour);
-        TextFormatting closest = TextFormatting.WHITE;
-        float closestDelta = Float.MAX_VALUE;
-        for (int i = 0; i < TEXT_COLOURS.length; i++) {
-            float[] dyeColour = ColorUtils.toHSVFloatArray(ColorUtils.TEXT_COLOURS[i]);
-            float deltaHue = Math.abs(dyeColour[0] - colour[0]);
-            float deltaSaturation = Math.abs(dyeColour[1] - colour[1]);
-            float deltaBrightness = Math.abs(dyeColour[2] - colour[2]);
-            float delta = deltaHue + deltaSaturation + deltaBrightness;
-            if (delta < closestDelta) {
-                closestDelta = delta;
-                closest = TextFormatting.fromColorIndex(i);
-            }
-        }
-        return closest;
     }
 
 }
