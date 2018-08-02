@@ -1,0 +1,19 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "type": "forge:ore_shaped",
+  "group": "stones",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:stone",
+      "data": 6
+    }
+  },
+  "result": {
+    "item": "neutronia:andesite_bricks",
+    "count": 4
+  }
+}

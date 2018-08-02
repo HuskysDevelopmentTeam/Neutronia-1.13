@@ -1,0 +1,7 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v5.",
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "neutronia:block/granite_cobble"
+  }
+}

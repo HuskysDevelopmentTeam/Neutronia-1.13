@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "neutronia:block/smooth_rust_arduin"
+    }
+  }
+}

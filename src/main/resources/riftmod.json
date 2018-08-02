@@ -1,0 +1,16 @@
+{
+  "id": "neutronia",
+  "name": "Neutronia",
+  "authors": [
+    "HuskyTheArtist"
+  ],
+  "listeners": [
+    "net.hdt.neutronia.init.NBlocks",
+    "net.hdt.neutronia.init.NItems",
+    "net.hdt.neutronia.init.NEntityTypes",
+    "net.hdt.neutronia.init.NEntityRenderingHandler",
+    "net.hdt.neutronia.init.NBiomes",
+    "net.hdt.neutronia.init.MixinInitializer",
+    "net.hdt.neutronia.init.NWorldChanger"
+  ]
+}

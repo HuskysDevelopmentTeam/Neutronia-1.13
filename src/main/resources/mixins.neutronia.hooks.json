@@ -1,0 +1,12 @@
+{
+  "required": false,
+  "minVersion": "0.7.7",
+  "compatibilityLevel": "JAVA_8",
+  "target": "@env(DEFAULT)",
+  "package": "net.hdt.neutronia.mixin.hook",
+  "refmap": "mixins.neutronia.refmap.json",
+  "mixins": [
+    "client.MixinMainScreen"
+  ],
+  "client": []
+}

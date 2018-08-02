@@ -1,0 +1,19 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "type": "forge:ore_shaped",
+  "group": "stones",
+  "pattern": [
+    "DD",
+    "DD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:stone",
+      "data": 4
+    }
+  },
+  "result": {
+    "item": "neutronia:diorite_bricks",
+    "count": 4
+  }
+}

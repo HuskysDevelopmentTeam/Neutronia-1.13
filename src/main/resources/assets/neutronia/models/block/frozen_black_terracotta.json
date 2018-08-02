@@ -1,0 +1,7 @@
+{
+  "parent": "neutronia:block/cube_overlay_all",
+  "textures": {
+    "all": "block/black_terracotta",
+    "overlay": "neutronia:block/ice_packed"
+  }
+}
