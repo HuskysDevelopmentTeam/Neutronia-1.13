@@ -28,19 +28,19 @@ public class EntitySpear extends EntityThrowable
     @Override
     protected void onImpact(RayTraceResult result)
     {
-        if (result.entityHit != null)
+        if (result.entity != null)
         {
-            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 1);
+            result.entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 1);
         }
 
         for (int j = 0; j < 8; ++j)
         {
-            this.world.addParticle(Particles.ITEM_SNOWBALL, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+            this.world.spawnParticle(Particles.ITEM_SNOWBALL, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
         }
 
         if (!this.world.isRemote)
         {
-            this.setDead();
+            this.remove();
         }
     }
 }

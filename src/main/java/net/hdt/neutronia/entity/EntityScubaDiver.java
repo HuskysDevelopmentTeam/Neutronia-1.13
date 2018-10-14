@@ -57,15 +57,15 @@ public class EntityScubaDiver extends EntityMob {
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, true));
     }
 
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
+    protected void registerAttributes() {
+        super.registerAttributes();
+        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
+        this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
     }
 
-    protected void entityInit() {
-        super.entityInit();
+    protected void registerData() {
+        super.registerData();
         this.dataManager.register(ON_FIRE, (byte) 0);
     }
 
@@ -96,7 +96,7 @@ public class EntityScubaDiver extends EntityMob {
      * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
      * use this to react to sunlight and start to burn.
      */
-    public void onLivingUpdate() {
+    public void livingTick() {
         if (!this.onGround && this.motionY < 0.0D) {
             this.motionY *= 0.6D;
         }
@@ -107,11 +107,11 @@ public class EntityScubaDiver extends EntityMob {
             }
 
             for (int i = 0; i < 2; ++i) {
-                this.world.addParticle(Particles.LARGE_SMOKE, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
+                this.world.spawnParticle(Particles.LARGE_SMOKE, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D);
             }
         }
 
-        super.onLivingUpdate();
+        super.livingTick();
     }
 
     protected void updateAITasks() {
@@ -189,7 +189,7 @@ public class EntityScubaDiver extends EntityMob {
          */
         public boolean shouldExecute() {
             EntityLivingBase entitylivingbase = this.blaze.getAttackTarget();
-            return entitylivingbase != null && entitylivingbase.isEntityAlive();
+            return entitylivingbase != null && entitylivingbase.isAlive();
         }
 
         /**
@@ -209,7 +209,7 @@ public class EntityScubaDiver extends EntityMob {
         /**
          * Keep ticking a continuous task that has already been started
          */
-        public void updateTask() {
+        public void tick() {
             --this.attackTime;
             EntityLivingBase entitylivingbase = this.blaze.getAttackTarget();
             double d0 = this.blaze.getDistanceSq(Objects.requireNonNull(entitylivingbase));
@@ -223,7 +223,7 @@ public class EntityScubaDiver extends EntityMob {
                 this.blaze.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
             } else if (d0 < this.getFollowDistance() * this.getFollowDistance()) {
                 double d1 = entitylivingbase.posX - this.blaze.posX;
-                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double) (entitylivingbase.height / 2.0F) - (this.blaze.posY + (double) (this.blaze.height / 2.0F));
+                double d2 = entitylivingbase.getBoundingBox().minY + (double) (entitylivingbase.height / 2.0F) - (this.blaze.posY + (double) (this.blaze.height / 2.0F));
                 double d3 = entitylivingbase.posZ - this.blaze.posZ;
 
                 if (this.attackTime <= 0) {
@@ -258,12 +258,12 @@ public class EntityScubaDiver extends EntityMob {
                 this.blaze.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
             }
 
-            super.updateTask();
+            super.tick();
         }
 
         private double getFollowDistance() {
-            IAttributeInstance iattributeinstance = this.blaze.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE);
-            return iattributeinstance.getAttributeValue();
+            IAttributeInstance iattributeinstance = this.blaze.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE);
+            return iattributeinstance.getValue();
         }
     }
 }

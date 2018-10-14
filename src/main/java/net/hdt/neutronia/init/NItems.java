@@ -69,8 +69,8 @@ public class NItems implements ItemAdder {
             if(type == NEntityTypes.SHADOW_PHANTOM) {
                 SPAWN_EGG = new ItemSpawnEgg(type, 0x101010, 0x101010, (new Item.Builder()).group(ItemGroup.MISC));
             }
-            registerItem(String.format("%s_spawn_egg", type.func_210760_d().replaceAll("entity.neutronia.", "")), SPAWN_EGG);
-            genSpawnEgg(MOD_ID, String.format("%s_spawn_egg", type.func_210760_d().replaceAll("entity.neutronia.", "")));
+            registerItem(String.format("%s_spawn_egg", type.getTranslationKey().replaceAll("entity.neutronia.", "")), SPAWN_EGG);
+            genSpawnEgg(MOD_ID, String.format("%s_spawn_egg", type.getTranslationKey().replaceAll("entity.neutronia.", "")));
         }
     }
 
@@ -91,7 +91,7 @@ public class NItems implements ItemAdder {
     }
 
     public static void registerItem(String name, Item item) {
-        Item.registerItem(new ResourceLocation(MOD_ID, name), item);
+        Item.register(new ResourceLocation(MOD_ID, name), item);
     }
 
 }

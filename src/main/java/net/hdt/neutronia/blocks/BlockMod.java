@@ -14,8 +14,8 @@ public class BlockMod extends Block {
     BlockMod(Material materialIn, String name, ItemGroup itemGroup, boolean isTranslucent) {
         super(Block.Builder.create(materialIn));
         this.isTranslucent = isTranslucent;
-        Block.registerBlock(new ResourceLocation("neutronia", name), this);
-        Item.registerItemBlock(this, itemGroup);
+        Block.register(new ResourceLocation("neutronia", name), this);
+        Item.register(this, itemGroup);
     }
 
     @Override

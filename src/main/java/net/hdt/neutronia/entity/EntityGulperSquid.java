@@ -59,9 +59,9 @@ public class EntityGulperSquid extends EntityWaterMob {
         this.tasks.addTask(0, new AIMoveRandom(this));
     }
 
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
+    protected void registerAttributes() {
+        super.registerAttributes();
+        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
     }
 
     public float getEyeHeight() {
@@ -104,8 +104,8 @@ public class EntityGulperSquid extends EntityWaterMob {
      * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
      * use this to react to sunlight and start to burn.
      */
-    public void onLivingUpdate() {
-        super.onLivingUpdate();
+    public void livingTick() {
+        super.livingTick();
         this.prevSquidPitch = this.squidPitch;
         this.prevSquidYaw = this.squidYaw;
         this.prevSquidRotation = this.squidRotation;

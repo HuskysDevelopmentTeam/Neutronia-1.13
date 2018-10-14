@@ -55,17 +55,17 @@ public class EntityFirefly extends EntityFlying {
     }*/
 	
 	@Override
-    public void writeEntityToNBT(NBTTagCompound compound) {
-    	super.writeEntityToNBT(compound);
-    	compound.setTag("spawnPos", this.newDoubleNBTList(spawnPos.x, spawnPos.y, spawnPos.z));
+    public void writeAdditional(NBTTagCompound compound) {
+    	super.writeAdditional(compound);
+    	compound.put("spawnPos", this.newDoubleNBTList(spawnPos.x, spawnPos.y, spawnPos.z));
     }
     
 	@Override
-    public void readEntityFromNBT(NBTTagCompound compound) {
-    	super.readEntityFromNBT(compound);
-    	if (compound.hasKey("spawnPos")) {
-			NBTTagList tag = (NBTTagList)compound.getTag("spawnPos");
-			this.spawnPos = new Vec3d(tag.getDoubleAt(0), tag.getDoubleAt(1), tag.getDoubleAt(2));
+    public void readAdditional(NBTTagCompound compound) {
+    	super.readAdditional(compound);
+    	if (compound.contains("spawnPos")) {
+			NBTTagList tag = (NBTTagList)compound.get("spawnPos");
+			this.spawnPos = new Vec3d(tag.getDouble(0), tag.getDouble(1), tag.getDouble(2));
 		}
     }
 	
@@ -85,17 +85,17 @@ public class EntityFirefly extends EntityFlying {
 	}
 	
 	@Override
-    public void onLivingUpdate() {
+    public void livingTick() {
 		if (!this.world.isRemote) {
 			
 			if (this.ticksExisted % 5 == 0) {
 				/*ParticleFireflyTail tailParticle = new ParticleFireflyTail(
 						this.world, this.prevPosX, this.prevPosY, this.prevPosZ, 0, 0, 0);
-				Minecraft.getMinecraft().effectRenderer.addEffect(tailParticle);*/
+				Minecraft.getInstance().effectRenderer.addEffect(tailParticle);*/
 			}
 		}
 		
-		super.onLivingUpdate();
+		super.livingTick();
 	}
     
 	private void setupAI() {
@@ -266,7 +266,7 @@ public class EntityFirefly extends EntityFlying {
 		public boolean shouldContinueExecuting() {
 			doFlyDown();
 			if (isTouchingBlock()) {
-				firefly.setDead();
+				firefly.remove();
 				return false;
 			}
 			return true;

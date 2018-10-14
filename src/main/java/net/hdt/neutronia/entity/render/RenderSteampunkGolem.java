@@ -35,7 +35,7 @@ public class RenderSteampunkGolem extends RenderLiving<EntitySteampunkGolem> {
             float f = 13.0F;
             float f1 = entityLiving.limbSwing - entityLiving.limbSwingAmount * (1.0F - partialTicks) + 6.0F;
             float f2 = (Math.abs(f1 % 13.0F - 6.5F) - 3.25F) / 3.25F;
-            GlStateManager.rotate(6.5F * f2, 0.0F, 0.0F, 1.0F);
+            GlStateManager.rotatef(6.5F * f2, 0.0F, 0.0F, 1.0F);
         }
     }
 

@@ -32,7 +32,7 @@ public class DungeonsFeature extends Feature<NoFeatureConfig> {
     public DungeonsFeature() {
     }
 
-    public boolean generate(IWorld p_generate_1_, IChunkGenerator<? extends IChunkGenSettings> p_generate_2_, Random p_generate_3_, BlockPos p_generate_4_, NoFeatureConfig p_generate_5_) {
+    public boolean place(IWorld p_generate_1_, IChunkGenerator<? extends IChunkGenSettings> p_generate_2_, Random p_generate_3_, BlockPos p_generate_4_, NoFeatureConfig p_generate_5_) {
         int lvt_7_1_ = p_generate_3_.nextInt(2) + 2;
         int lvt_8_1_ = -lvt_7_1_ - 1;
         int lvt_9_1_ = lvt_7_1_ + 1;
@@ -107,17 +107,17 @@ public class DungeonsFeature extends Feature<NoFeatureConfig> {
 
                         if (lvt_22_1_ == 1) {
                             p_generate_1_.setBlockState(lvt_21_2_, StructurePiece.func_197528_a(p_generate_1_, lvt_21_2_, Blocks.CHEST.getDefaultState()), 2);
-                            TileEntityLockableLoot.func_195479_a(p_generate_1_, p_generate_3_, lvt_21_2_, LootTableList.CHESTS_SIMPLE_DUNGEON);
+                            TileEntityLockableLoot.setLootTable(p_generate_1_, p_generate_3_, lvt_21_2_, LootTableList.CHESTS_SIMPLE_DUNGEON);
                             break;
                         }
                     }
                 }
             }
 
-            p_generate_1_.setBlockState(p_generate_4_, Blocks.MOB_SPAWNER.getDefaultState(), 2);
+            p_generate_1_.setBlockState(p_generate_4_, Blocks.SPAWNER.getDefaultState(), 2);
             TileEntity lvt_16_4_ = p_generate_1_.getTileEntity(p_generate_4_);
             if (lvt_16_4_ instanceof TileEntityMobSpawner) {
-                ((TileEntityMobSpawner)lvt_16_4_).getSpawnerBaseLogic().func_200876_a(this.func_201043_a(p_generate_3_));
+                ((TileEntityMobSpawner)lvt_16_4_).getSpawnerBaseLogic().setEntityType(this.func_201043_a(p_generate_3_));
             } else {
                 LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", p_generate_4_.getX(), p_generate_4_.getY(), p_generate_4_.getZ());
             }

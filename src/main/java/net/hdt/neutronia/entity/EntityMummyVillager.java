@@ -44,8 +44,8 @@ public class EntityMummyVillager extends EntityMummy {
     }
 
     @Override
-    protected void entityInit() {
-        super.entityInit();
+    protected void registerData() {
+        super.registerData();
         this.dataManager.register(CONVERTING, Boolean.FALSE);
         this.dataManager.register(PROFESSION, 0);
     }
@@ -59,34 +59,34 @@ public class EntityMummyVillager extends EntityMummy {
     }
 
     @Override
-    public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
-        compound.setInteger("Profession", this.getProfession());
-        compound.setInteger("ConversionTime", this.isConverting() ? this.conversionTime : -1);
+    public void writeAdditional(NBTTagCompound compound) {
+        super.writeAdditional(compound);
+        compound.putInt("Profession", this.getProfession());
+        compound.putInt("ConversionTime", this.isConverting() ? this.conversionTime : -1);
 
         if (this.converstionStarter != null) {
-            compound.setUniqueId("ConversionStarter", this.converstionStarter);
+            compound.putUniqueId("ConversionStarter", this.converstionStarter);
         }
     }
 
     @Override
-    public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
-        this.setProfession(compound.getInteger("Profession"));
-        if (compound.hasKey("ConversionTime", 99) && compound.getInteger("ConversionTime") > -1) {
-            this.startConverting(compound.hasUniqueId("ConversionPlayer") ? compound.getUniqueId("ConversionPlayer") : null, compound.getInteger("ConversionTime"));
+    public void readAdditional(NBTTagCompound compound) {
+        super.readAdditional(compound);
+        this.setProfession(compound.getInt("Profession"));
+        if (compound.contains("ConversionTime", 99) && compound.getInt("ConversionTime") > -1) {
+            this.startConverting(compound.hasUniqueId("ConversionPlayer") ? compound.getUniqueId("ConversionPlayer") : null, compound.getInt("ConversionTime"));
         }
     }
 
     @Nullable
     @Override
-    public IEntityLivingData func_204210_a(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata, NBTTagCompound tagCompound) {
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata, NBTTagCompound tagCompound) {
         this.setProfession(this.world.rand.nextInt(6));
-        return super.func_204210_a(difficulty, livingdata, tagCompound);
+        return super.onInitialSpawn(difficulty, livingdata, tagCompound);
     }
 
     @Override
-    public void onUpdate() {
+    public void tick() {
         if (!this.world.isRemote && this.isConverting()) {
             int i = this.getConversionProgress();
             this.conversionTime -= i;
@@ -95,7 +95,7 @@ public class EntityMummyVillager extends EntityMummy {
                 this.finishConversion();
             }
         }
-        super.onUpdate();
+        super.tick();
     }
 
     @Override
@@ -103,7 +103,7 @@ public class EntityMummyVillager extends EntityMummy {
         ItemStack itemstack = player.getHeldItem(hand);
 
         if (itemstack.getItem() == Items.GOLDEN_APPLE && this.isPotionActive(MobEffects.WEAKNESS)) {
-            if (!player.capabilities.isCreativeMode) {
+            if (!player.abilities.isCreativeMode) {
                 itemstack.shrink(1);
             }
 
@@ -151,10 +151,6 @@ public class EntityMummyVillager extends EntityMummy {
         entityvillager.setLookingForHome();
         this.world.removeEntity(this);
         entityvillager.setNoAI(this.isAIDisabled());
-
-        if (this.hasCustomName()) {
-            entityvillager.setAlwaysRenderNameTag(this.getAlwaysRenderNameTag());
-        }
 
         this.world.spawnEntity(entityvillager);
         entityvillager.getActivePotionEffects().add(new PotionEffect(MobEffects.NAUSEA, 200, 0));

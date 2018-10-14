@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderPlatypus extends RenderLiving<EntityPlatypus> {
 
     public static final ResourceLocation PLATYPUS_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/platypus.png");
-    private static final EntityPlatypus platypus = new EntityPlatypus(Minecraft.getMinecraft().world);
+    private static final EntityPlatypus platypus = new EntityPlatypus(Minecraft.getInstance().world);
 
     public RenderPlatypus(RenderManager manager) {
         super(manager, new ModelPlatypus(), 0.2F);

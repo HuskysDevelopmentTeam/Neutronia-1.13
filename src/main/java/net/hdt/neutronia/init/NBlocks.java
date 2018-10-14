@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.util.ResourceLocation;
 import org.dimdev.rift.listener.BlockAdder;
 
 public class NBlocks implements BlockAdder {
@@ -40,10 +41,10 @@ public class NBlocks implements BlockAdder {
         }
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
 //            frostedClay[dyeColor.func_196059_a()] = new BlockOverworldBase(Material.ROCK, String.format("frozen_%s_terracotta", dyeColor.getName()), true);
-            centeredGlazedTerracottaBlocks[dyeColor.func_196059_a()] = new BlockOverworldBase(Material.ROCK, String.format("centered_glazed_terracotta_%s", dyeColor.getName()), false);
+            centeredGlazedTerracottaBlocks[dyeColor.getId()] = new BlockOverworldBase(Material.ROCK, String.format("centered_glazed_terracotta_%s", dyeColor.getName()), false);
         }
         blackSand = new BlockFalling(Block.Builder.create(Material.SAND));
-        Block.registerBlock("neutronia:black_sand", blackSand);
+        Block.register(new ResourceLocation("neutronia:black_sand"), blackSand);
     }
 
 }

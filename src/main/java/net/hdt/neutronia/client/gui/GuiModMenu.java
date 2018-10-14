@@ -1,5 +1,6 @@
 package net.hdt.neutronia.client.gui;
 
+import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -19,13 +20,13 @@ public class GuiModMenu extends GuiScreen {
     }
 
     @Override
-    public void drawScreen(int p_drawScreen_1_, int p_drawScreen_2_, float p_drawScreen_3_) {
+    public void render(int p_drawScreen_1_, int p_drawScreen_2_, float p_drawScreen_3_) {
         GlStateManager.disableLighting();
         GlStateManager.disableFog();
         Tessellator lvt_2_1_ = Tessellator.getInstance();
         BufferBuilder lvt_3_1_ = lvt_2_1_.getBuffer();
         this.mc.getTextureManager().bindTexture(new ResourceLocation("minecraft:textures/block/stone.png"));
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         lvt_3_1_.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
         lvt_3_1_.pos(0.0D, (double)this.height, 0.0D).tex(0.0D, (double)((float)this.height / 32.0F + (float)0)).color(64, 64, 64, 255).endVertex();
         lvt_3_1_.pos((double)this.width, (double)this.height, 0.0D).tex((double)((float)this.width / 32.0F), (double)((float)this.height / 32.0F + (float)0)).color(64, 64, 64, 255).endVertex();

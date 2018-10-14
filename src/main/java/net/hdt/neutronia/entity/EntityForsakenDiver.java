@@ -9,6 +9,8 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -21,19 +23,18 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.pathfinding.PathNavigateSwimmer;
 import net.minecraft.pathfinding.PathNodeType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
+import java.util.List;
 
 public class EntityForsakenDiver extends EntityMob {
 
@@ -65,7 +66,7 @@ public class EntityForsakenDiver extends EntityMob {
     }
 
     @Override
-    protected boolean func_204609_dp() {
+    public boolean canSpawn(IWorld world) {
         return world.getDifficulty() != EnumDifficulty.PEACEFUL && world.getBlockState(new BlockPos(MathHelper.floor(posX), MathHelper.floor(posY), MathHelper.floor(posZ))).getBlock() == Blocks.WATER;
     }
 
@@ -89,7 +90,7 @@ public class EntityForsakenDiver extends EntityMob {
     }
 
     @Override
-    public void onLivingUpdate() {
+    public void livingTick() {
         if (getEntityWorld().isRemote) {
             if (isInWater()) {
 /*                Vec3d vec3d = getLook(0.0F);
@@ -107,20 +108,20 @@ public class EntityForsakenDiver extends EntityMob {
             rotationYaw = rand.nextFloat() * 360.0F;
             onGround = false;
             isAirBorne = true;
-            if(getEntityWorld().getTotalWorldTime()%5==0)
+            if(getEntityWorld().getGameTime() % 5 == 0)
                 getEntityWorld().playSound(null, posX, posY, posZ, SoundEvents.ENTITY_GUARDIAN_FLOP, SoundCategory.HOSTILE, 1F, 1F);
             damageEntity(DamageSource.DROWN, 0.5F);
         }
 
-        super.onLivingUpdate();
+        super.livingTick();
     }
 
     @Override
-    public void onUpdate() {
+    public void tick() {
         if(!getEntityWorld().isRemote) {
-            if(getAttackTarget() != null && !getEntityWorld().containsAnyLiquid(getAttackTarget().getEntityBoundingBox())) {
+            if(getAttackTarget() != null && !getEntityWorld().containsAnyLiquid(getAttackTarget().getBoundingBox())) {
                 Double distance = getPosition().getDistance((int) getAttackTarget().posX, (int) getAttackTarget().posY, (int) getAttackTarget().posZ);
-                if (distance > 1.0F && distance < 6.0F) // && getAttackTarget().getEntityBoundingBox().maxY >= getEntityBoundingBox().minY && getAttackTarget().getEntityBoundingBox().minY <= getEntityBoundingBox().maxY && rand.nextInt(3) == 0)
+                if (distance > 1.0F && distance < 6.0F) // && getAttackTarget().getBoundingBox().maxY >= getBoundingBox().minY && getAttackTarget().getBoundingBox().minY <= getBoundingBox().maxY && rand.nextInt(3) == 0)
                     if (isInWater() && getEntityWorld().isAirBlock(new BlockPos((int) posX, (int) posY + 1, (int) posZ))) {
                         double distanceX = getAttackTarget().posX - posX;
                         double distanceZ = getAttackTarget().posZ - posZ;
@@ -131,7 +132,7 @@ public class EntityForsakenDiver extends EntityMob {
                     }
             }
         }
-        super.onUpdate();
+        super.tick();
     }
 
     @Override
@@ -160,22 +161,22 @@ public class EntityForsakenDiver extends EntityMob {
      */
     /*public boolean isNotColliding()
     {
-        return this.world.checkNoEntityCollision(this.getEntityBoundingBox(), this) && this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty();
+        return this.world.checkNoEntityCollision(this.getBoundingBox(), this) && this.world.getCollisionBoxes(this, this.getBoundingBox()).isEmpty();
     }*/
 
     @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(1.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0D);
+    protected void registerAttributes() {
+        super.registerAttributes();
+        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
+        this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(1.0D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
+        this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0D);
     }
 
     @Override
-    protected void entityInit() {
-        super.entityInit();
+    protected void registerData() {
+        super.registerData();
         this.getDataManager().register(ARMS_RAISED, false);
     }
 
@@ -274,39 +275,53 @@ public class EntityForsakenDiver extends EntityMob {
         return stack.getItem() == NItems.ANCHOR;
     }
 
-    @Nullable
+    /*@Nullable
     @Override
-    public IEntityLivingData func_204210_a(DifficultyInstance difficultyInstance, @Nullable IEntityLivingData livingData, @Nullable NBTTagCompound tagCompound) {
-        if (!getCanSpawnHere())
-            despawnEntity();
-        else {
-            livingData = super.func_204210_a(difficultyInstance, livingData, tagCompound);
-            float f = difficultyInstance.getClampedAdditionalDifficulty();
-            this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
-            if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty()) {
-                LocalDate lvt_5_2_ = LocalDate.now();
-                int lvt_6_3_ = lvt_5_2_.get(ChronoField.DAY_OF_MONTH);
-                int lvt_7_2_ = lvt_5_2_.get(ChronoField.MONTH_OF_YEAR);
-                if (lvt_7_2_ == 10 && lvt_6_3_ == 31 && this.rand.nextFloat() < 0.25F) {
-                    this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(this.rand.nextFloat() < 0.1F ? Blocks.JACK_O_LANTERN : Blocks.CARVED_PUMPKIN));
-                    this.inventoryArmorDropChances[EntityEquipmentSlot.HEAD.getIndex()] = 0.0F;
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficultyInstance, @Nullable IEntityLivingData livingData, @Nullable NBTTagCompound tagCompound) {
+        IEntityLivingData p_onInitialSpawn_2_ = super.onInitialSpawn(difficulty, livingdata, nbtTagCompound);
+        float lvt_4_1_ = difficulty.getClampedAdditionalDifficulty();
+
+        if (p_onInitialSpawn_2_ == null) {
+            p_onInitialSpawn_2_ = new EntityLostMiner.GroupData(this.world.rand.nextFloat() < 0.05F);
+        }
+
+        if (p_onInitialSpawn_2_ instanceof EntityZombie.GroupData) {
+            EntityZombie.GroupData lvt_5_1_ = (EntityZombie.GroupData)p_onInitialSpawn_2_;
+            if (lvt_5_1_.isChild) {
+                if ((double)this.world.rand.nextFloat() < 0.05D) {
+                    List<EntityChicken> lvt_6_1_ = this.world.getEntitiesWithinAABB(EntityChicken.class, this.getBoundingBox().grow(5.0D, 3.0D, 5.0D), EntitySelectors.IS_STANDALONE);
+                    if (!lvt_6_1_.isEmpty()) {
+                        EntityChicken lvt_7_1_ = lvt_6_1_.get(0);
+                        lvt_7_1_.setChickenJockey(true);
+                        this.startRiding(lvt_7_1_);
+                    }
+                } else if ((double)this.world.rand.nextFloat() < 0.05D) {
+                    EntityChicken lvt_6_2_ = new EntityChicken(this.world);
+                    lvt_6_2_.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+                    lvt_6_2_.onInitialSpawn(difficulty, null, null);
+                    lvt_6_2_.setChickenJockey(true);
+                    this.world.spawnEntity(lvt_6_2_);
+                    this.startRiding(lvt_6_2_);
                 }
             }
-            this.setEquipmentBasedOnDifficulty(difficultyInstance);
-            this.setEnchantmentBasedOnDifficulty(difficultyInstance);
 
-            this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(new AttributeModifier("Spawn Bonus", this.rand.nextDouble() * 0.05000000074505806D, 0));
-            double d0 = this.rand.nextDouble() * 1.5D * (double) f;
+            this.setEquipmentBasedOnDifficulty(difficulty);
+            this.setEnchantmentBasedOnDifficulty(difficulty);
+        }
 
-            if (d0 > 1.0D)
-                this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random Forsaken-Spawn Bonus", d0, 2));
-
-            if (this.rand.nextFloat() < f * 0.0F && this.world.getDifficulty() == EnumDifficulty.HARD) {
-                this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader Forsaken Bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
+        if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty()) {
+            LocalDate lvt_5_2_ = LocalDate.now();
+            int lvt_6_3_ = lvt_5_2_.get(ChronoField.DAY_OF_MONTH);
+            int lvt_7_2_ = lvt_5_2_.get(ChronoField.MONTH_OF_YEAR);
+            if (lvt_7_2_ == 10 && lvt_6_3_ == 31 && this.rand.nextFloat() < 0.25F) {
+                this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(this.rand.nextFloat() < 0.1F ? Blocks.JACK_O_LANTERN : Blocks.CARVED_PUMPKIN));
+                this.inventoryArmorDropChances[EntityEquipmentSlot.HEAD.getIndex()] = 0.0F;
             }
         }
-        return livingData;
-    }
+
+        this.applyAttributeBonuses(lvt_4_1_);
+        return p_onInitialSpawn_2_;
+    }*/
 
     public double getYOffset() {
         return -0.45D;
@@ -321,7 +336,7 @@ public class EntityForsakenDiver extends EntityMob {
         }
 
         @Override
-        public void onUpdateMoveHelper() {
+        public void tick() {
             if (action == Action.MOVE_TO && !angler.getNavigator().noPath()) {
                 double d0 = posX - angler.posX;
                 double d1 = posY - angler.posY;
@@ -332,7 +347,7 @@ public class EntityForsakenDiver extends EntityMob {
                 float f = (float) (MathHelper.atan2(d2, d0) * (180D / Math.PI)) - 90.0F;
                 angler.rotationYaw = limitAngle(angler.rotationYaw, f, 90.0F);
                 angler.renderYawOffset = angler.rotationYaw;
-                float f1 = (float) (speed * angler.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue());
+                float f1 = (float) (speed * angler.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue());
                 angler.setAIMoveSpeed(angler.getAIMoveSpeed() + (f1 - angler.getAIMoveSpeed()) * 0.125F);
                 double d4 = Math.sin((double) (angler.ticksExisted + angler.getEntityId()) * 0.5D) * 0.05D;
                 double d5 = Math.cos((double) (angler.rotationYaw * 0.017453292F));

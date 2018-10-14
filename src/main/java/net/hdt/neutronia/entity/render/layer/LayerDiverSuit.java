@@ -17,10 +17,10 @@ public class LayerDiverSuit implements LayerRenderer<EntityAnchored> {
         this.renderer = p_i47183_1_;
     }
 
-    public void doRenderLayer(EntityAnchored entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+    public void render(EntityAnchored entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         this.layerModel.setModelAttributes(this.renderer.getMainModel());
         this.layerModel.setLivingAnimations(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTicks);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.renderer.bindTexture(STRAY_CLOTHES_TEXTURES);
         this.layerModel.render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     }

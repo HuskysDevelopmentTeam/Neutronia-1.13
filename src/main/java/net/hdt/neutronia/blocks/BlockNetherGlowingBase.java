@@ -1,11 +1,14 @@
 package net.hdt.neutronia.blocks;
 
+import net.minecraft.block.BlockBubbleColumn;
+import net.minecraft.block.BlockMagma;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Particles;
 import net.minecraft.init.SoundEvents;
@@ -30,36 +33,36 @@ public class BlockNetherGlowingBase extends BlockMod {
         return MapColor.NETHERRACK;
     }
 
-    /**
-     * Called when the given entity walks on this Block
-     */
-    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-        if (!entityIn.isImmuneToFire() && entityIn instanceof EntityLivingBase && !EnchantmentHelper.hasFrostWalkerEnchantment((EntityLivingBase) entityIn)) {
-            entityIn.attackEntityFrom(DamageSource.HOT_FLOOR, 1.0F);
+    public void onEntityWalk(World p_onEntityWalk_1_, BlockPos p_onEntityWalk_2_, Entity p_onEntityWalk_3_) {
+        if (!p_onEntityWalk_3_.isImmuneToFire() && p_onEntityWalk_3_ instanceof EntityLivingBase && !EnchantmentHelper.hasFrostWalker((EntityLivingBase)p_onEntityWalk_3_)) {
+            p_onEntityWalk_3_.attackEntityFrom(DamageSource.HOT_FLOOR, 1.0F);
         }
 
-        super.onEntityWalk(worldIn, pos, entityIn);
+        super.onEntityWalk(p_onEntityWalk_1_, p_onEntityWalk_2_, p_onEntityWalk_3_);
     }
 
-    @Override
     public int getPackedLightmapCoords(IBlockState p_getPackedLightmapCoords_1_, IWorldReader p_getPackedLightmapCoords_2_, BlockPos p_getPackedLightmapCoords_3_) {
         return 15728880;
     }
 
-    public IBlockState func_196271_a(IBlockState p_196271_1_, EnumFacing p_196271_2_, IBlockState p_196271_3_, IWorld p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_) {
-        if (p_196271_2_ == EnumFacing.UP && p_196271_3_.getBlock() == Blocks.WATER) {
-            p_196271_4_.getPendingBlockTickList().add(p_196271_5_, this, this.tickRate(p_196271_4_));
+    public void tick(IBlockState p_tick_1_, World p_tick_2_, BlockPos p_tick_3_, Random p_tick_4_) {
+        BlockBubbleColumn.placeBubbleColumn(p_tick_2_, p_tick_3_.up(), true);
+    }
+
+    public IBlockState updatePostPlacement(IBlockState p_updatePostPlacement_1_, EnumFacing p_updatePostPlacement_2_, IBlockState p_updatePostPlacement_3_, IWorld p_updatePostPlacement_4_, BlockPos p_updatePostPlacement_5_, BlockPos p_updatePostPlacement_6_) {
+        if (p_updatePostPlacement_2_ == EnumFacing.UP && p_updatePostPlacement_3_.getBlock() == Blocks.WATER) {
+            p_updatePostPlacement_4_.getPendingBlockTicks().scheduleTick(p_updatePostPlacement_5_, this, this.tickRate(p_updatePostPlacement_4_));
         }
 
-        return super.func_196271_a(p_196271_1_, p_196271_2_, p_196271_3_, p_196271_4_, p_196271_5_, p_196271_6_);
+        return super.updatePostPlacement(p_updatePostPlacement_1_, p_updatePostPlacement_2_, p_updatePostPlacement_3_, p_updatePostPlacement_4_, p_updatePostPlacement_5_, p_updatePostPlacement_6_);
     }
 
     public void randomTick(IBlockState p_randomTick_1_, World p_randomTick_2_, BlockPos p_randomTick_3_, Random p_randomTick_4_) {
         BlockPos lvt_5_1_ = p_randomTick_3_.up();
         if (p_randomTick_2_.getFluidState(p_randomTick_3_).isTagged(FluidTags.WATER)) {
-            p_randomTick_2_.playSound(null, p_randomTick_3_, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5F, 2.6F + (p_randomTick_2_.rand.nextFloat() - p_randomTick_2_.rand.nextFloat()) * 0.8F);
+            p_randomTick_2_.playSound((EntityPlayer)null, p_randomTick_3_, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5F, 2.6F + (p_randomTick_2_.rand.nextFloat() - p_randomTick_2_.rand.nextFloat()) * 0.8F);
             if (p_randomTick_2_ instanceof WorldServer) {
-                ((WorldServer)p_randomTick_2_).func_195598_a(Particles.LARGE_SMOKE, (double)lvt_5_1_.getX() + 0.5D, (double)lvt_5_1_.getY() + 0.25D, (double)lvt_5_1_.getZ() + 0.5D, 8, 0.5D, 0.25D, 0.5D, 0.0D);
+                ((WorldServer)p_randomTick_2_).spawnParticle(Particles.LARGE_SMOKE, (double)lvt_5_1_.getX() + 0.5D, (double)lvt_5_1_.getY() + 0.25D, (double)lvt_5_1_.getZ() + 0.5D, 8, 0.5D, 0.25D, 0.5D, 0.0D);
             }
         }
 
@@ -69,8 +72,8 @@ public class BlockNetherGlowingBase extends BlockMod {
         return 20;
     }
 
-    public void onBlockPlace(IBlockState p_onBlockPlace_1_, World p_onBlockPlace_2_, BlockPos p_onBlockPlace_3_, IBlockState p_onBlockPlace_4_) {
-        p_onBlockPlace_2_.getPendingBlockTickList().add(p_onBlockPlace_3_, this, this.tickRate(p_onBlockPlace_2_));
+    public void onBlockAdded(IBlockState p_onBlockAdded_1_, World p_onBlockAdded_2_, BlockPos p_onBlockAdded_3_, IBlockState p_onBlockAdded_4_) {
+        p_onBlockAdded_2_.getPendingBlockTicks().scheduleTick(p_onBlockAdded_3_, this, this.tickRate(p_onBlockAdded_2_));
     }
 
     public boolean canEntitySpawn(IBlockState p_canEntitySpawn_1_, Entity p_canEntitySpawn_2_) {

@@ -29,20 +29,20 @@ public class BlockEasterEgg extends BlockMod implements ITileEntityProvider {
 
     @Nullable
     @Override
-    public TileEntity getTileEntity(IBlockReader iBlockReader) {
+    public TileEntity createNewTileEntity(IBlockReader iBlockReader) {
         return new TileEntityEasterEgg(random);
     }
 
     @Override
-    public void onLeftClick(IBlockState blockState, World world, BlockPos pos, EntityPlayer player) {
-        super.onLeftClick(blockState, world, pos, player);
+    public void onBlockClicked(IBlockState blockState, World world, BlockPos pos, EntityPlayer player) {
+        super.onBlockClicked(blockState, world, pos, player);
         if (!world.isRemote) {
             TileEntity te = world.getTileEntity(pos);
             if (te instanceof TileEntityEasterEgg) {
                 TileEntityEasterEgg eggte = (TileEntityEasterEgg) te;
                 ItemStack egg = new ItemStack(NItems.easter_egg);
                 NBTTagCompound nbt = eggte.writeColorsToNBT(new NBTTagCompound());
-                egg.setTagCompound(nbt);
+                egg.setTag(nbt);
                 world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), egg));
             }
             world.destroyBlock(pos, false);

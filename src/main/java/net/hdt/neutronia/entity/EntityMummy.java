@@ -5,14 +5,13 @@ import net.hdt.neutronia.init.NEntityTypes;
 import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.util.handlers.LootTableHandler;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -45,8 +44,6 @@ public class EntityMummy extends EntityMob {
     private static final AttributeModifier BABY_SPEED_BOOST = new AttributeModifier(BABY_SPEED_BOOST_ID, "Mummy Baby Speed Boost", 0.5D, 1);
     private static final DataParameter<Boolean> IS_CHILD = EntityDataManager.createKey(EntityMummy.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Integer> VILLAGER_TYPE = EntityDataManager.createKey(EntityMummy.class, DataSerializers.VARINT);
-    private final EntityAIBreakDoor breakDoor = new EntityAIBreakDoor(this);
-    private boolean isBreakDoorsTaskSet;
 
     private double mummyBabyChance = 0.05;
     private float mummyWidth = -1.0F;
@@ -77,18 +74,18 @@ public class EntityMummy extends EntityMob {
     }
 
     @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(1.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0D);
+    protected void registerAttributes() {
+        super.registerAttributes();
+        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
+        this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(1.0D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
+        this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0D);
     }
 
     @Override
-    protected void entityInit() {
-        super.entityInit();
+    protected void registerData() {
+        super.registerData();
         this.getDataManager().register(VILLAGER_TYPE, 0);
         this.getDataManager().register(ARMS_RAISED, Boolean.FALSE);
         this.getDataManager().register(IS_CHILD, Boolean.FALSE);
@@ -102,22 +99,6 @@ public class EntityMummy extends EntityMob {
         this.getDataManager().set(ARMS_RAISED, armsRaised);
     }
 
-    public boolean isBreakDoorsTaskSet() {
-        return this.isBreakDoorsTaskSet;
-    }
-
-    public void setBreakDoorAItask(boolean enabled) {
-        if (this.isBreakDoorsTaskSet != enabled) {
-            this.isBreakDoorsTaskSet = enabled;
-            ((PathNavigateGround) this.getNavigator()).setBreakDoors(enabled);
-
-            if (enabled)
-                this.tasks.addTask(1, this.breakDoor);
-            else
-                this.tasks.removeTask(this.breakDoor);
-        }
-    }
-
     public boolean isChild() {
         return this.getDataManager().get(IS_CHILD);
     }
@@ -125,7 +106,7 @@ public class EntityMummy extends EntityMob {
     public void setChild(boolean child) {
         this.getDataManager().set(IS_CHILD, child);
         if (this.world != null && !this.world.isRemote) {
-            IAttributeInstance attributeInstance = this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED);
+            IAttributeInstance attributeInstance = this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED);
             attributeInstance.removeModifier(BABY_SPEED_BOOST);
 
             if (child)
@@ -146,11 +127,6 @@ public class EntityMummy extends EntityMob {
         if (IS_CHILD.equals(key))
             this.setChildSize(this.isChild());
         super.notifyDataManagerChange(key);
-    }
-
-    @Override
-    public void onLivingUpdate() {
-        super.onLivingUpdate();
     }
 
     @Override
@@ -238,19 +214,17 @@ public class EntityMummy extends EntityMob {
     }
 
     @Override
-    public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
+    public void writeAdditional(NBTTagCompound compound) {
+        super.writeAdditional(compound);
         if (this.isChild())
-            compound.setBoolean("IsBaby", true);
-        compound.setBoolean("CanBreakDoors", this.isBreakDoorsTaskSet());
+            compound.putBoolean("IsBaby", true);
     }
 
     @Override
-    public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
+    public void readAdditional(NBTTagCompound compound) {
+        super.readAdditional(compound);
         if (compound.getBoolean("IsBaby"))
             this.setChild(true);
-        this.setBreakDoorAItask(compound.getBoolean("CanBreakDoors"));
     }
 
     @Override
@@ -258,22 +232,24 @@ public class EntityMummy extends EntityMob {
         super.onKillEntity(entityLivingIn);
 
         if ((this.world.getDifficulty() == EnumDifficulty.NORMAL || this.world.getDifficulty() == EnumDifficulty.HARD) && entityLivingIn instanceof EntityVillager) {
-            if (this.world.getDifficulty() != EnumDifficulty.HARD && this.rand.nextBoolean())
+            if (this.world.getDifficulty() != EnumDifficulty.HARD && this.rand.nextBoolean()) {
                 return;
-
-            EntityVillager entityVillager = (EntityVillager) entityLivingIn;
-            EntityMummyVillager entityMummyVillager = new EntityMummyVillager(this.world);
-            entityMummyVillager.copyLocationAndAnglesFrom(entityVillager);
-            this.world.removeEntity(entityVillager);
-            entityMummyVillager.func_204210_a(this.world.getDifficultyForLocation(new BlockPos(entityMummyVillager)), null, null);
-            entityMummyVillager.setProfession(entityVillager.getProfession());
-            entityMummyVillager.setNoAI(entityVillager.isAIDisabled());
-
-            if (entityVillager.hasCustomName()) {
-                entityMummyVillager.setAlwaysRenderNameTag(entityVillager.getAlwaysRenderNameTag());
             }
 
-            this.world.spawnEntity(entityMummyVillager);
+            EntityVillager lvt_2_1_ = (EntityVillager)entityLivingIn;
+            EntityMummyVillager lvt_3_1_ = new EntityMummyVillager(this.world);
+            lvt_3_1_.copyLocationAndAnglesFrom(lvt_2_1_);
+            this.world.removeEntity(lvt_2_1_);
+            lvt_3_1_.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(lvt_3_1_)), new EntityMummy.GroupData(false), (NBTTagCompound)null);
+            lvt_3_1_.setProfession(lvt_2_1_.getProfession());
+            lvt_3_1_.setChild(lvt_2_1_.isChild());
+            lvt_3_1_.setNoAI(lvt_2_1_.isAIDisabled());
+            if (lvt_2_1_.hasCustomName()) {
+                lvt_3_1_.setCustomName(lvt_2_1_.getCustomName());
+                lvt_3_1_.setCustomNameVisible(lvt_2_1_.isCustomNameVisible());
+            }
+
+            this.world.spawnEntity(lvt_3_1_);
             this.world.playEvent(null, 1026, new BlockPos(this), 0);
         }
     }
@@ -326,14 +302,14 @@ public class EntityMummy extends EntityMob {
             this.setEquipmentBasedOnDifficulty(difficulty);
             this.setEnchantmentBasedOnDifficulty(difficulty);
 
-            this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(new AttributeModifier("Spawn Bonus", this.rand.nextDouble() * 0.05000000074505806D, 0));
+            this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(new AttributeModifier("Spawn Bonus", this.rand.nextDouble() * 0.05000000074505806D, 0));
             double d0 = this.rand.nextDouble() * 1.5D * (double) f;
 
             if (d0 > 1.0D)
-                this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random mummy-spawn bonus", d0, 2));
+                this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random mummy-spawn bonus", d0, 2));
 
             if (this.rand.nextFloat() < f * 0.0F && this.world.getDifficulty() == EnumDifficulty.HARD) {
-                this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader mummy bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
+                this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader mummy bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
                 this.setBreakDoorAItask(true);
             }
         }
@@ -360,6 +336,14 @@ public class EntityMummy extends EntityMob {
 
     public double getYOffset() {
         return this.isChild() ? 0.0D : -0.45D;
+    }
+
+    public class GroupData implements IEntityLivingData {
+        public boolean isChild;
+
+        private GroupData(boolean p_i47328_2_) {
+            this.isChild = p_i47328_2_;
+        }
     }
 
 }

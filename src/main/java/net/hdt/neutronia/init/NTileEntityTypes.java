@@ -19,7 +19,7 @@ public class NTileEntityTypes implements TileEntityTypeAdder {
     }
 
     private static TileEntityType<TileEntity> registerEntityType(String name, Supplier<TileEntity> supplier) {
-        TileEntityType<TileEntity> type = TileEntityType.registerTileEntityType(Reference.MOD_ID + ":" + name, TileEntityType.Builder.create(supplier));
+        TileEntityType<TileEntity> type = TileEntityType.register(Reference.MOD_ID + ":" + name, TileEntityType.Builder.create(supplier));
         return type;
     }
 

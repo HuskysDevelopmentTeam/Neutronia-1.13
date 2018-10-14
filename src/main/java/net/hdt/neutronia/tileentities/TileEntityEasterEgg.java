@@ -26,29 +26,29 @@ public class TileEntityEasterEgg extends TileEntity {
     }
 
     @Override
-    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-        compound = super.writeToNBT(compound);
+    public NBTTagCompound write(NBTTagCompound compound) {
+        compound = super.write(compound);
         this.writeColorsToNBT(compound);
         return compound;
     }
 
     public NBTTagCompound writeColorsToNBT(NBTTagCompound compound) {
         for (int i = 0; i < 2; i++) {
-            compound.setInteger("color" + i, this.getColor(i));
+            compound.putInt("color" + i, this.getColor(i));
         }
         return compound;
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound compound) {
-        super.readFromNBT(compound);
+    public void read(NBTTagCompound compound) {
+        super.read(compound);
         this.readColorsFromNBT(compound);
     }
 
     public void readColorsFromNBT(NBTTagCompound compound) {
         for (int i = 0; i < 2; i++) {
-            if (compound.hasKey("color" + i)) {
-                this.setColor(i, compound.getInteger("color" + i));
+            if (compound.contains("color" + i)) {
+                this.setColor(i, compound.getInt("color" + i));
             }
         }
     }

@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle.tweaker-client'
 apply plugin: 'java'
 
 version = "${mc_version}-${major_version}.${minor_version}.${build_number}"
-group= "net.hdt.neutronia"
+group= "net.hdt.neutronia_alt"
 archivesBaseName = "${mod_name}"
 
 sourceCompatibility = 1.8
@@ -21,17 +21,18 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     maven { url 'https://www.dimdev.org/maven/' }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation 'org.dimdev:rift:1.0.2-27:dev'
+    implementation 'org.dimdev:rift:1.0.4-65:dev'
 }
 
 minecraft {
     version = "${mc_version}"
     runDir = "run"
-    mappings = 'snapshot_5'
-    tweakClass = 'org.dimdev.riftloader.launch.RiftLoaderTweaker'
+    mappings = 'stable_43'
+    tweakClass = 'org.dimdev.riftloader.launch.RiftLoaderClientTweaker'
 }
 
 jar {

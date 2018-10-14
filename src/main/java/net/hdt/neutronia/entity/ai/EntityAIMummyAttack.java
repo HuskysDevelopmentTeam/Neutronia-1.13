@@ -26,8 +26,8 @@ public class EntityAIMummyAttack extends EntityAIAttackMelee {
     }
 
     @Override
-    public void updateTask() {
-        super.updateTask();
+    public void tick() {
+        super.tick();
         ++this.raiseArmTicks;
 
         if (this.raiseArmTicks >= 5 && this.attackTick < 10) {

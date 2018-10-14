@@ -35,7 +35,7 @@ public class LayerFireflyGlow implements LayerRenderer<EntityFirefly> {
 	}
 
 	@Override
-	public void doRenderLayer(EntityFirefly entityIn, float limbSwing, float limbSwingAmount,
+	public void render(EntityFirefly entityIn, float limbSwing, float limbSwingAmount,
 			float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 
 		float rotationX = ActiveRenderInfo.getRotationX();
@@ -44,7 +44,7 @@ public class LayerFireflyGlow implements LayerRenderer<EntityFirefly> {
     	float rotationYZ = ActiveRenderInfo.getRotationYZ();
     	float rotationXY = ActiveRenderInfo.getRotationXY();
     	
-    	EntityPlayer player = Minecraft.getMinecraft().player;
+    	EntityPlayer player = Minecraft.getInstance().player;
     	
     	double interpPosX = player.lastTickPosX + (player.posX - player.lastTickPosX) * (double)partialTicks;
         double interpPosY = player.lastTickPosY + (player.posY - player.lastTickPosY) * (double)partialTicks;

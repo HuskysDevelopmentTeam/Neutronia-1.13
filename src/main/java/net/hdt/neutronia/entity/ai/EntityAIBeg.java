@@ -38,7 +38,7 @@ public class EntityAIBeg extends EntityAIBase
      */
     public boolean shouldContinueExecuting()
     {
-        if (!this.player.isEntityAlive())
+        if (!this.player.isAlive())
         {
             return false;
         }
@@ -73,7 +73,7 @@ public class EntityAIBeg extends EntityAIBase
     /**
      * Keep ticking a continuous task that has already been started
      */
-    public void updateTask()
+    public void tick()
     {
         this.wolf.getLookHelper().setLookPosition(this.player.posX, this.player.posY + (double)this.player.getEyeHeight(), this.player.posZ, 10.0F, (float)this.wolf.getVerticalFaceSpeed());
         --this.timeoutCounter;

@@ -11,7 +11,7 @@ public class ItemModFood extends ItemFood {
 
     public ItemModFood(String name, ItemGroup itemGroup, int amount, float saturation, boolean isWolfFood) {
         super(amount, saturation, isWolfFood, new Item.Builder().group(itemGroup));
-        Item.registerItem(new ResourceLocation(MOD_ID, name), this);
+        Item.register(new ResourceLocation(MOD_ID, name), this);
     }
 
     public ItemModFood(String name, ItemGroup itemGroup, int amount, boolean isWolfFood) {

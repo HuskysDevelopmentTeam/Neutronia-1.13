@@ -54,9 +54,9 @@ public class EntityGolemBase extends EntityGolem {
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget<>(this, EntityLiving.class, 10, false, true, p_apply_1_ -> p_apply_1_ != null && IMob.VISIBLE_MOB_SELECTOR.test(p_apply_1_) && !(p_apply_1_ instanceof EntityCreeper)));
     }
 
-    protected void entityInit()
+    protected void registerData()
     {
-        super.entityInit();
+        super.registerData();
         this.dataManager.register(PLAYER_CREATED, (byte) 0);
     }
 
@@ -65,12 +65,12 @@ public class EntityGolemBase extends EntityGolem {
         super.updateAITasks();
     }
 
-    protected void applyEntityAttributes()
+    protected void registerAttributes()
     {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
-        this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
+        super.registerAttributes();
+        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
+        this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
     }
 
     /**
@@ -95,9 +95,9 @@ public class EntityGolemBase extends EntityGolem {
      * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
      * use this to react to sunlight and start to burn.
      */
-    public void onLivingUpdate()
+    public void livingTick()
     {
-        super.onLivingUpdate();
+        super.livingTick();
 
         if (this.attackTimer > 0)
         {
@@ -111,7 +111,7 @@ public class EntityGolemBase extends EntityGolem {
             int k = MathHelper.floor(this.posZ);
             IBlockState lvt_4_1_ = this.world.getBlockState(new BlockPos(i, j, k));
             if (!lvt_4_1_.isAir()) {
-                this.world.addParticle(new BlockParticleData(Particles.BLOCK, lvt_4_1_), this.posX + ((double)this.rand.nextFloat() - 0.5D) * (double)this.width, this.getEntityBoundingBox().minY + 0.1D, this.posZ + ((double)this.rand.nextFloat() - 0.5D) * (double)this.width, 4.0D * ((double)this.rand.nextFloat() - 0.5D), 0.5D, ((double)this.rand.nextFloat() - 0.5D) * 4.0D);
+                this.world.spawnParticle(new BlockParticleData(Particles.BLOCK, lvt_4_1_), this.posX + ((double)this.rand.nextFloat() - 0.5D) * (double)this.width, this.getBoundingBox().minY + 0.1D, this.posZ + ((double)this.rand.nextFloat() - 0.5D) * (double)this.width, 4.0D * ((double)this.rand.nextFloat() - 0.5D), 0.5D, ((double)this.rand.nextFloat() - 0.5D) * 4.0D);
             }
         }
     }
@@ -134,18 +134,18 @@ public class EntityGolemBase extends EntityGolem {
     /**
      * (abstract) Protected helper method to write subclass entity data to NBT.
      */
-    public void writeEntityToNBT(NBTTagCompound compound)
+    public void writeAdditional(NBTTagCompound compound)
     {
-        super.writeEntityToNBT(compound);
-        compound.setBoolean("PlayerCreated", this.isPlayerCreated());
+        super.writeAdditional(compound);
+        compound.putBoolean("PlayerCreated", this.isPlayerCreated());
     }
 
     /**
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
-    public void readEntityFromNBT(NBTTagCompound compound)
+    public void readAdditional(NBTTagCompound compound)
     {
-        super.readEntityFromNBT(compound);
+        super.readAdditional(compound);
         this.setPlayerCreated(compound.getBoolean("PlayerCreated"));
     }
 
@@ -161,7 +161,7 @@ public class EntityGolemBase extends EntityGolem {
             this.applyEnchantments(this, entityIn);
         }
 
-        this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
+        this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0F, 1.0F);
         return flag;
     }
 
@@ -173,7 +173,7 @@ public class EntityGolemBase extends EntityGolem {
         if (id == 4)
         {
             this.attackTimer = 10;
-            this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
+            this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0F, 1.0F);
         }
         else
         {
@@ -188,17 +188,17 @@ public class EntityGolemBase extends EntityGolem {
 
     protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return SoundEvents.ENTITY_IRONGOLEM_HURT;
+        return SoundEvents.ENTITY_IRON_GOLEM_HURT;
     }
 
     protected SoundEvent getDeathSound()
     {
-        return SoundEvents.ENTITY_IRONGOLEM_DEATH;
+        return SoundEvents.ENTITY_IRON_GOLEM_DEATH;
     }
 
     protected void playStepSound(BlockPos pos, Block blockIn)
     {
-        this.playSound(SoundEvents.ENTITY_IRONGOLEM_STEP, 1.0F, 1.0F);
+        this.playSound(SoundEvents.ENTITY_IRON_GOLEM_STEP, 1.0F, 1.0F);
     }
 
     @Nullable

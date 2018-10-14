@@ -24,12 +24,12 @@ public class RenderEnderPhantom extends RenderLiving<EntityEnderPhantom> {
     protected void preRenderCallback(EntityEnderPhantom p_preRenderCallback_1_, float p_preRenderCallback_2_) {
         int lvt_3_1_ = p_preRenderCallback_1_.func_203032_dq();
         float lvt_4_1_ = 1.0F + 0.15F * (float)lvt_3_1_;
-        GlStateManager.scale(lvt_4_1_, lvt_4_1_, lvt_4_1_);
-        GlStateManager.translate(0.0F, 1.3125F, 0.1875F);
+        GlStateManager.scaled(lvt_4_1_, lvt_4_1_, lvt_4_1_);
+        GlStateManager.translated(0.0F, 1.3125F, 0.1875F);
     }
 
     protected void applyRotations(EntityEnderPhantom p_applyRotations_1_, float p_applyRotations_2_, float p_applyRotations_3_, float p_applyRotations_4_) {
         super.applyRotations(p_applyRotations_1_, p_applyRotations_2_, p_applyRotations_3_, p_applyRotations_4_);
-        GlStateManager.rotate(p_applyRotations_1_.rotationPitch, 1.0F, 0.0F, 0.0F);
+        GlStateManager.rotatef(p_applyRotations_1_.rotationPitch, 1.0F, 0.0F, 0.0F);
     }
 }

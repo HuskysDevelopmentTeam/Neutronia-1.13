@@ -18,7 +18,7 @@ public class ItemBase extends Item {
 
     public ItemBase(String name, ItemGroup itemGroup) {
         super(new Item.Builder().group(itemGroup));
-        Item.registerItem(new ResourceLocation(MOD_ID, name), this);
+        Item.register(new ResourceLocation(MOD_ID, name), this);
     }
 
     public static void tooltipIfShift(List<String> tooltip, Runnable r) {

@@ -37,7 +37,7 @@ public class RenderArcticWolf extends RenderLiving<EntityArcticWolf>
         if (entity.isWolfWet())
         {
             float f = entity.getBrightness() * entity.getShadingWhileWet(partialTicks);
-            GlStateManager.color(f, f, f);
+            GlStateManager.color3f(f, f, f);
         }
 
         super.doRender(entity, x, y, z, entityYaw, partialTicks);

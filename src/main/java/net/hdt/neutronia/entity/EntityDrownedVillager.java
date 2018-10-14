@@ -43,8 +43,8 @@ public class EntityDrownedVillager extends EntityDrowned {
     }
 
     @Override
-    protected void entityInit() {
-        super.entityInit();
+    protected void registerData() {
+        super.registerData();
         this.dataManager.register(CONVERTING, Boolean.FALSE);
         this.dataManager.register(PROFESSION, 0);
     }
@@ -58,28 +58,28 @@ public class EntityDrownedVillager extends EntityDrowned {
     }
 
     @Override
-    public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
-        compound.setInteger("Profession", this.getProfession());
-        compound.setInteger("ConversionTime", this.isConverting() ? this.conversionTime : -1);
+    public void writeAdditional(NBTTagCompound compound) {
+        super.writeAdditional(compound);
+        compound.putInt("Profession", this.getProfession());
+        compound.putInt("ConversionTime", this.isConverting() ? this.conversionTime : -1);
 
         if (this.converstionStarter != null) {
-            compound.setUniqueId("ConversionStarter", this.converstionStarter);
+            compound.putUniqueId("ConversionStarter", this.converstionStarter);
         }
     }
 
     @Override
-    public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
-        this.setProfession(compound.getInteger("Profession"));
+    public void readAdditional(NBTTagCompound compound) {
+        super.readAdditional(compound);
+        this.setProfession(compound.getInt("Profession"));
 
-        if (compound.hasKey("ConversionTime", 99) && compound.getInteger("ConversionTime") > -1) {
-            this.startConverting(compound.hasUniqueId("ConversionPlayer") ? compound.getUniqueId("ConversionPlayer") : null, compound.getInteger("ConversionTime"));
+        if (compound.contains("ConversionTime", 99) && compound.getInt("ConversionTime") > -1) {
+            this.startConverting(compound.hasUniqueId("ConversionPlayer") ? compound.getUniqueId("ConversionPlayer") : null, compound.getInt("ConversionTime"));
         }
     }
 
     @Override
-    public void onUpdate() {
+    public void tick() {
         if (!this.world.isRemote && this.isConverting()) {
             int i = this.getConversionProgress();
             this.conversionTime -= i;
@@ -88,7 +88,7 @@ public class EntityDrownedVillager extends EntityDrowned {
                 this.finishConversion();
             }
         }
-        super.onUpdate();
+        super.tick();
     }
 
     @Override
@@ -96,7 +96,7 @@ public class EntityDrownedVillager extends EntityDrowned {
         ItemStack itemstack = player.getHeldItem(hand);
 
         if (itemstack.getItem() == Items.GOLDEN_APPLE && this.isPotionActive(MobEffects.WEAKNESS)) {
-            if (!player.capabilities.isCreativeMode) {
+            if (!player.abilities.isCreativeMode) {
                 itemstack.shrink(1);
             }
 

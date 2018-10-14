@@ -92,7 +92,7 @@ public class NEntityTypes implements EntityTypeAdder {
     }
 
     private static EntityType registerEntityType(String name, Class<? extends Entity> clazz, Function<? super World, ? extends Entity> entity) {
-        EntityType type = EntityType.registerEntityType(Reference.MOD_ID + ":" + name, EntityType.Builder.create(clazz, entity).func_200706_c());
+        EntityType type = EntityType.register(Reference.MOD_ID + ":" + name, EntityType.Builder.create(clazz, entity).disableSerialization());
         ENTITIES.add(type);
         return type;
     }

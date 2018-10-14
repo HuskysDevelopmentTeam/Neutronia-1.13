@@ -34,10 +34,7 @@ public class CommandTeleportToDimension {
                             return 0;
                         })
                         .then(requiredArgument("biome_name", StringArgumentType.string())
-                                .executes(context -> {
-
-                                    return 0;
-                                })));
+                                .executes(context -> 0)));
         dispatcher.register(builder);
     }
 
@@ -47,37 +44,6 @@ public class CommandTeleportToDimension {
 
     private static <T> RequiredArgumentBuilder<CommandSource, T> requiredArgument(String name, ArgumentType<T> type) {
         return RequiredArgumentBuilder.argument(name, type);
-    }
-
-    static class Facing {
-        private final Vec3d field_200549_a;
-        private final Entity field_200550_b;
-        private final EntityAnchorArgument.Type field_201125_c;
-
-        public Facing(Entity p_i48274_1_, EntityAnchorArgument.Type p_i48274_2_) {
-            this.field_200550_b = p_i48274_1_;
-            this.field_201125_c = p_i48274_2_;
-            this.field_200549_a = p_i48274_2_.func_201017_a(p_i48274_1_);
-        }
-
-        public Facing(Vec3d p_i48246_1_) {
-            this.field_200550_b = null;
-            this.field_200549_a = p_i48246_1_;
-            this.field_201125_c = null;
-        }
-
-        public void func_201124_a(CommandSource p_201124_1_, Entity p_201124_2_) {
-            if (this.field_200550_b != null) {
-                if (p_201124_2_ instanceof EntityPlayerMP) {
-                    ((EntityPlayerMP)p_201124_2_).func_200618_a(p_201124_1_.getEntityAnchorType(), this.field_200550_b, this.field_201125_c);
-                } else {
-                    p_201124_2_.func_200602_a(p_201124_1_.getEntityAnchorType(), this.field_200549_a);
-                }
-            } else {
-                p_201124_2_.func_200602_a(p_201124_1_.getEntityAnchorType(), this.field_200549_a);
-            }
-
-        }
     }
 
 }

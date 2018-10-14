@@ -32,24 +32,24 @@ public class VillageStructure extends Structure<VillageConfig> {
         return "Village";
     }
 
-    public int func_202367_b() {
+    public int getSize() {
         return 8;
     }
 
-    protected boolean isEnabled(IWorld p_isEnabled_1_) {
+    protected boolean isEnabledIn(IWorld p_isEnabled_1_) {
         return p_isEnabled_1_.getWorldInfo().isMapFeaturesEnabled();
     }
 
     protected ChunkPos func_211744_a(IChunkGenerator<?> p_211744_1_, Random p_211744_2_, int p_211744_3_, int p_211744_4_, int p_211744_5_, int p_211744_6_) {
-        int lvt_7_1_ = p_211744_1_.getChunkGenSettings().getVillageDistance();
-        int lvt_8_1_ = p_211744_1_.getChunkGenSettings().func_211729_b();
+        int lvt_7_1_ = p_211744_1_.getSettings().getVillageDistance();
+        int lvt_8_1_ = p_211744_1_.getSettings().getVillageSeparation();
         int lvt_9_1_ = p_211744_3_ + lvt_7_1_ * p_211744_5_;
         int lvt_10_1_ = p_211744_4_ + lvt_7_1_ * p_211744_6_;
         int lvt_11_1_ = lvt_9_1_ < 0 ? lvt_9_1_ - lvt_7_1_ - 1 : lvt_9_1_;
         int lvt_12_1_ = lvt_10_1_ < 0 ? lvt_10_1_ - lvt_7_1_ - 1 : lvt_10_1_;
         int lvt_13_1_ = lvt_11_1_ / lvt_7_1_;
         int lvt_14_1_ = lvt_12_1_ / lvt_7_1_;
-        ((SharedSeedRandom)p_211744_2_).func_202427_a(p_211744_1_.getSeed(), lvt_13_1_, lvt_14_1_, 10387312);
+        ((SharedSeedRandom)p_211744_2_).setLargeFeatureSeedWithSalt(p_211744_1_.getSeed(), lvt_13_1_, lvt_14_1_, 10387312);
         lvt_13_1_ *= lvt_7_1_;
         lvt_14_1_ *= lvt_7_1_;
         lvt_13_1_ += p_211744_2_.nextInt(lvt_7_1_ - lvt_8_1_);
@@ -57,7 +57,7 @@ public class VillageStructure extends Structure<VillageConfig> {
         return new ChunkPos(lvt_13_1_, lvt_14_1_);
     }
 
-    protected boolean func_202372_a(IChunkGenerator<?> p_202372_1_, Random p_202372_2_, int p_202372_3_, int p_202372_4_) {
+    protected boolean hasStartAt(IChunkGenerator<?> p_202372_1_, Random p_202372_2_, int p_202372_3_, int p_202372_4_) {
         ChunkPos lvt_5_1_ = this.func_211744_a(p_202372_1_, p_202372_2_, p_202372_3_, p_202372_4_, 0, 0);
         if (p_202372_3_ == lvt_5_1_.x && p_202372_4_ == lvt_5_1_.z) {
             Biome lvt_6_1_ = p_202372_1_.getBiomeProvider().getBiome(new BlockPos((p_202372_3_ << 4) + 9, 0, (p_202372_4_ << 4) + 9), Biomes.DEFAULT);
@@ -67,7 +67,7 @@ public class VillageStructure extends Structure<VillageConfig> {
         }
     }
 
-    protected StructureStart func_202369_a(IWorld p_202369_1_, IChunkGenerator<?> p_202369_2_, SharedSeedRandom p_202369_3_, int p_202369_4_, int p_202369_5_) {
+    protected StructureStart makeStart(IWorld p_202369_1_, IChunkGenerator<?> p_202369_2_, SharedSeedRandom p_202369_3_, int p_202369_4_, int p_202369_5_) {
         Biome lvt_6_1_ = p_202369_2_.getBiomeProvider().getBiome(new BlockPos((p_202369_4_ << 4) + 9, 0, (p_202369_5_ << 4) + 9), Biomes.DEFAULT);
         return new VillageStructure.Start(p_202369_1_, p_202369_2_, p_202369_3_, p_202369_4_, p_202369_5_, lvt_6_1_);
     }
@@ -102,7 +102,7 @@ public class VillageStructure extends Structure<VillageConfig> {
                 }
             }
 
-            this.func_202500_a(p_i48753_1_);
+            this.recalculateStructureSize(p_i48753_1_);
             lvt_12_3_ = 0;
             Iterator var15 = this.components.iterator();
 
@@ -120,13 +120,13 @@ public class VillageStructure extends Structure<VillageConfig> {
             return this.hasMoreThanTwoComponents;
         }
 
-        public void writeToNBT(NBTTagCompound p_writeToNBT_1_) {
-            super.writeToNBT(p_writeToNBT_1_);
-            p_writeToNBT_1_.setBoolean("Valid", this.hasMoreThanTwoComponents);
+        public void writeAdditional(NBTTagCompound p_writeToNBT_1_) {
+            super.writeAdditional(p_writeToNBT_1_);
+            p_writeToNBT_1_.putBoolean("Valid", this.hasMoreThanTwoComponents);
         }
 
-        public void readFromNBT(NBTTagCompound p_readFromNBT_1_) {
-            super.readFromNBT(p_readFromNBT_1_);
+        public void readAdditional(NBTTagCompound p_readFromNBT_1_) {
+            super.readAdditional(p_readFromNBT_1_);
             this.hasMoreThanTwoComponents = p_readFromNBT_1_.getBoolean("Valid");
         }
     }

@@ -40,31 +40,31 @@ public class EntityDrownedScubaVillager extends EntityScubaVillager {
     }
 
     @Override
-    protected void entityInit() {
-        super.entityInit();
+    protected void registerData() {
+        super.registerData();
         this.dataManager.register(CONVERTING, Boolean.FALSE);
     }
 
     @Override
-    public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
-        compound.setInteger("ConversionTime", this.isConverting() ? this.conversionTime : -1);
+    public void writeAdditional(NBTTagCompound compound) {
+        super.writeAdditional(compound);
+        compound.putInt("ConversionTime", this.isConverting() ? this.conversionTime : -1);
 
         if (this.converstionStarter != null) {
-            compound.setUniqueId("ConversionStarter", this.converstionStarter);
+            compound.putUniqueId("ConversionStarter", this.converstionStarter);
         }
     }
 
     @Override
-    public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
-        if (compound.hasKey("ConversionTime", 99) && compound.getInteger("ConversionTime") > -1) {
-            this.startConverting(compound.hasUniqueId("ConversionPlayer") ? compound.getUniqueId("ConversionPlayer") : null, compound.getInteger("ConversionTime"));
+    public void readAdditional(NBTTagCompound compound) {
+        super.readAdditional(compound);
+        if (compound.contains("ConversionTime", 99) && compound.getInt("ConversionTime") > -1) {
+            this.startConverting(compound.hasUniqueId("ConversionPlayer") ? compound.getUniqueId("ConversionPlayer") : null, compound.getInt("ConversionTime"));
         }
     }
 
     @Override
-    public void onUpdate() {
+    public void tick() {
         if (!this.world.isRemote && this.isConverting()) {
             int i = this.getConversionProgress();
             this.conversionTime -= i;
@@ -73,7 +73,7 @@ public class EntityDrownedScubaVillager extends EntityScubaVillager {
                 this.finishConversion();
             }
         }
-        super.onUpdate();
+        super.tick();
     }
 
     @Override
@@ -81,7 +81,7 @@ public class EntityDrownedScubaVillager extends EntityScubaVillager {
         ItemStack itemstack = player.getHeldItem(hand);
 
         if (itemstack.getItem() == Items.GOLDEN_APPLE && this.isPotionActive(MobEffects.WEAKNESS)) {
-            if (!player.capabilities.isCreativeMode) {
+            if (!player.abilities.isCreativeMode) {
                 itemstack.shrink(1);
             }
 

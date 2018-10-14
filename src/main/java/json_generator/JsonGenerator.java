@@ -44,7 +44,7 @@ public class JsonGenerator {
         }*/
 //        genBlock(new ResourceLocation(modid, "ash"), new ResourceLocation(modid, "ash"));
         for(EntityType type : NEntityTypes.ENTITIES) {
-            genSpawnEgg(modid, String.format("%s_spawn_egg", type.func_210760_d().replaceAll("entity.neutronia.", "")));
+            genSpawnEgg(modid, String.format("%s_spawn_egg", type.getTranslationKey().replaceAll("entity.neutronia.", "")));
         }
     }
 

@@ -19,10 +19,10 @@ public class NBiomes implements BiomeAdder {
 
     @Override
     public void registerBiomes() {
-         Biome.registerBiome(1857, "basalt_badlands", BASALT_BADLANDS);
-         Biome.registerBiome(1858, "red_desert", RED_DESERT);
-         Biome.registerBiome(1859, "black_desert", BLACK_DESERT);
-         Biome.registerBiome(1860, "soulsand_desert", SOULSAND_DESERT);
+         Biome.register(1857, "neutronia:basalt_badlands", BASALT_BADLANDS);
+         Biome.register(1858, "neutronia:red_desert", RED_DESERT);
+         Biome.register(1859, "neutronia:black_desert", BLACK_DESERT);
+         Biome.register(1860, "neutronia:soulsand_desert", SOULSAND_DESERT);
     }
 
     @Override

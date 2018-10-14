@@ -7,10 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntityIronGolem;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
@@ -74,19 +71,6 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
         return super.createNavigator(p_createNavigator_1_);
     }
 
-    public boolean func_205020_a(IWorld p_205020_1_) {
-        Biome lvt_2_1_ = p_205020_1_.getBiome(new BlockPos(this.posX, this.posY, this.posZ));
-        if (lvt_2_1_ != Biomes.RIVER && lvt_2_1_ != Biomes.FROZEN_RIVER) {
-            return this.rand.nextInt(40) == 0 && this.func_204712_dC() && super.func_205020_a(p_205020_1_);
-        } else {
-            return this.rand.nextInt(15) == 0 && super.func_205020_a(p_205020_1_);
-        }
-    }
-
-    private boolean func_204712_dC() {
-        return this.getEntityBoundingBox().minY < (double)(this.world.getSeaLevel() - 5);
-    }
-
     @Override
     protected boolean isValidLightLevel() {
         return true;
@@ -98,12 +82,12 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
     }
 
     @Override
-    public void onLivingUpdate() {
+    public void livingTick() {
         if (getEntityWorld().isRemote) {
             if (isInWater()) {
 /*                Vec3d vec3d = getLook(0.0F);
                 for (int i = 0; i < 2; ++i)
-                    getEntityWorld().addParticle(Particles.BUBBLE, posX + (rand.nextDouble() - 0.5D) * (double) width - vec3d.x * 1.5D, posY + rand.nextDouble() * (double) height - vec3d.y * 1.5D, posZ + (rand.nextDouble() - 0.5D) * (double) width - vec3d.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);*/
+                    getEntityWorld().spawnParticle(Particles.BUBBLE, posX + (rand.nextDouble() - 0.5D) * (double) width - vec3d.x * 1.5D, posY + rand.nextDouble() * (double) height - vec3d.y * 1.5D, posZ + (rand.nextDouble() - 0.5D) * (double) width - vec3d.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);*/
             }
         }
 
@@ -113,15 +97,15 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
 
         }
 
-        super.onLivingUpdate();
+        super.livingTick();
     }
 
     @Override
-    public void onUpdate() {
+    public void tick() {
         if(!getEntityWorld().isRemote) {
-            if(getAttackTarget() != null && !getEntityWorld().containsAnyLiquid(getAttackTarget().getEntityBoundingBox())) {
+            if(getAttackTarget() != null && !getEntityWorld().containsAnyLiquid(getAttackTarget().getBoundingBox())) {
                 Double distance = getPosition().getDistance((int) getAttackTarget().posX, (int) getAttackTarget().posY, (int) getAttackTarget().posZ);
-                if (distance > 1.0F && distance < 6.0F) // && getAttackTarget().getEntityBoundingBox().maxY >= getEntityBoundingBox().minY && getAttackTarget().getEntityBoundingBox().minY <= getEntityBoundingBox().maxY && rand.nextInt(3) == 0)
+                if (distance > 1.0F && distance < 6.0F) // && getAttackTarget().getBoundingBox().maxY >= getBoundingBox().minY && getAttackTarget().getBoundingBox().minY <= getBoundingBox().maxY && rand.nextInt(3) == 0)
                     if (isInWater() && getEntityWorld().isAirBlock(new BlockPos((int) posX, (int) posY + 1, (int) posZ))) {
                         double distanceX = getAttackTarget().posX - posX;
                         double distanceZ = getAttackTarget().posZ - posZ;
@@ -132,7 +116,7 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
                     }
             }
         }
-        super.onUpdate();
+        super.tick();
     }
 
     @Override
@@ -153,7 +137,7 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
      */
     /*public boolean isNotColliding()
     {
-        return this.world.collideWithEntity(this.getEntityBoundingBox(), this); && this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty();
+        return this.world.collideWithEntity(this.getBoundingBox(), this); && this.world.getCollisionBoxes(this, this.getBoundingBox()).isEmpty();
     }*/
 
     protected void applyEntityAI() {
@@ -164,18 +148,18 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
     }
 
     @Override
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(1.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0D);
+    protected void registerAttributes() {
+        super.registerAttributes();
+        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
+        this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(1.0D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
+        this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0D);
     }
 
     @Override
-    protected void entityInit() {
-        super.entityInit();
+    protected void registerData() {
+        super.registerData();
     }
 
     public boolean canBreatheUnderwater()
@@ -184,7 +168,7 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
     }
 
     public boolean isPushedByWater() {
-        return !this.func_203007_ba();
+        return !this.isSwimming();
     }
 
     @Override
@@ -266,8 +250,8 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
 
     @Nullable
     @Override
-    public IEntityLivingData func_204210_a(DifficultyInstance difficultyInstance, @Nullable IEntityLivingData livingData, @Nullable NBTTagCompound tagCompound) {
-        livingData = super.func_204210_a(difficultyInstance, livingData, tagCompound);
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficultyInstance, @Nullable IEntityLivingData livingData, @Nullable NBTTagCompound tagCompound) {
+        livingData = super.onInitialSpawn(difficultyInstance, livingData, tagCompound);
         if (this.getItemStackFromSlot(EntityEquipmentSlot.OFFHAND).isEmpty() && this.rand.nextFloat() < 0.03F) {
             this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(NItems.ANCHOR));
             this.inventoryHandsDropChances[EntityEquipmentSlot.OFFHAND.getIndex()] = 2.0F;
@@ -341,7 +325,7 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
             this.field_204725_i = p_i48909_1_;
         }
 
-        public void onUpdateMoveHelper() {
+        public void tick() {
             EntityLivingBase lvt_1_1_ = this.field_204725_i.getAttackTarget();
             if (this.field_204725_i.func_204715_dF() && this.field_204725_i.isInWater()) {
                 if (lvt_1_1_ != null && lvt_1_1_.posY > this.field_204725_i.posY || this.field_204725_i.field_204718_bx) {
@@ -361,7 +345,7 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
                 float lvt_10_1_ = (float)(MathHelper.atan2(lvt_6_1_, lvt_2_1_) * 57.2957763671875D) - 90.0F;
                 this.field_204725_i.rotationYaw = this.limitAngle(this.field_204725_i.rotationYaw, lvt_10_1_, 90.0F);
                 this.field_204725_i.renderYawOffset = this.field_204725_i.rotationYaw;
-                float lvt_11_1_ = (float)(this.speed * this.field_204725_i.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue());
+                float lvt_11_1_ = (float)(this.speed * this.field_204725_i.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue());
                 this.field_204725_i.setAIMoveSpeed(this.field_204725_i.getAIMoveSpeed() + (lvt_11_1_ - this.field_204725_i.getAIMoveSpeed()) * 0.125F);
                 this.field_204725_i.motionY += (double)this.field_204725_i.getAIMoveSpeed() * lvt_4_1_ * 0.1D;
                 this.field_204725_i.motionX += (double)this.field_204725_i.getAIMoveSpeed() * lvt_2_1_ * 0.005D;
@@ -371,7 +355,7 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
                     this.field_204725_i.motionY -= 0.008D;
                 }
 
-                super.onUpdateMoveHelper();
+                super.tick();
             }
 
         }
@@ -438,7 +422,7 @@ public class EntityAnchored extends EntityMob implements IRangedAttackMob {
         @Nullable
         private Vec3d func_204729_f() {
             Random lvt_1_1_ = this.field_204730_a.getRNG();
-            BlockPos lvt_2_1_ = new BlockPos(this.field_204730_a.posX, this.field_204730_a.getEntityBoundingBox().minY, this.field_204730_a.posZ);
+            BlockPos lvt_2_1_ = new BlockPos(this.field_204730_a.posX, this.field_204730_a.getBoundingBox().minY, this.field_204730_a.posZ);
 
             for(int lvt_3_1_ = 0; lvt_3_1_ < 10; ++lvt_3_1_) {
                 BlockPos lvt_4_1_ = lvt_2_1_.add(lvt_1_1_.nextInt(20) - 10, 2 - lvt_1_1_.nextInt(8), lvt_1_1_.nextInt(20) - 10);

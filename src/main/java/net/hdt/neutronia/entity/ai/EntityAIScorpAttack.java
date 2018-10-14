@@ -26,8 +26,8 @@ public class EntityAIScorpAttack extends EntityAIAttackMelee {
     }
 
     @Override
-    public void updateTask() {
-        super.updateTask();
+    public void tick() {
+        super.tick();
         ++extendTailTicks;
 
         if (this.extendTailTicks >= 5 && this.attackTick < 10) {

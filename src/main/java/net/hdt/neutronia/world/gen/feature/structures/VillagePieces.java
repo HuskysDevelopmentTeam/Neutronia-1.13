@@ -49,15 +49,15 @@ public class VillagePieces {
 
     public static List<VillagePieces.PieceWeight> getStructureVillageWeightedPieceList(Random p_getStructureVillageWeightedPieceList_0_, int p_getStructureVillageWeightedPieceList_1_) {
         List<VillagePieces.PieceWeight> lvt_2_1_ = Lists.newArrayList();
-        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.House4Garden.class, 4, MathHelper.getInt(p_getStructureVillageWeightedPieceList_0_, 2 + p_getStructureVillageWeightedPieceList_1_, 4 + p_getStructureVillageWeightedPieceList_1_ * 2)));
-        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.Church.class, 20, MathHelper.getInt(p_getStructureVillageWeightedPieceList_0_, 0 + p_getStructureVillageWeightedPieceList_1_, 1 + p_getStructureVillageWeightedPieceList_1_)));
-        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.House1.class, 20, MathHelper.getInt(p_getStructureVillageWeightedPieceList_0_, 0 + p_getStructureVillageWeightedPieceList_1_, 2 + p_getStructureVillageWeightedPieceList_1_)));
-        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.WoodHut.class, 3, MathHelper.getInt(p_getStructureVillageWeightedPieceList_0_, 2 + p_getStructureVillageWeightedPieceList_1_, 5 + p_getStructureVillageWeightedPieceList_1_ * 3)));
-        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.Hall.class, 15, MathHelper.getInt(p_getStructureVillageWeightedPieceList_0_, 0 + p_getStructureVillageWeightedPieceList_1_, 2 + p_getStructureVillageWeightedPieceList_1_)));
-        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.Field1.class, 3, MathHelper.getInt(p_getStructureVillageWeightedPieceList_0_, 1 + p_getStructureVillageWeightedPieceList_1_, 4 + p_getStructureVillageWeightedPieceList_1_)));
-        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.Field2.class, 3, MathHelper.getInt(p_getStructureVillageWeightedPieceList_0_, 2 + p_getStructureVillageWeightedPieceList_1_, 4 + p_getStructureVillageWeightedPieceList_1_ * 2)));
-        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.House2.class, 15, MathHelper.getInt(p_getStructureVillageWeightedPieceList_0_, 0, 1 + p_getStructureVillageWeightedPieceList_1_)));
-        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.House3.class, 8, MathHelper.getInt(p_getStructureVillageWeightedPieceList_0_, 0 + p_getStructureVillageWeightedPieceList_1_, 3 + p_getStructureVillageWeightedPieceList_1_ * 2)));
+        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.House4Garden.class, 4, MathHelper.nextInt(p_getStructureVillageWeightedPieceList_0_, 2 + p_getStructureVillageWeightedPieceList_1_, 4 + p_getStructureVillageWeightedPieceList_1_ * 2)));
+        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.Church.class, 20, MathHelper.nextInt(p_getStructureVillageWeightedPieceList_0_, 0 + p_getStructureVillageWeightedPieceList_1_, 1 + p_getStructureVillageWeightedPieceList_1_)));
+        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.House1.class, 20, MathHelper.nextInt(p_getStructureVillageWeightedPieceList_0_, 0 + p_getStructureVillageWeightedPieceList_1_, 2 + p_getStructureVillageWeightedPieceList_1_)));
+        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.WoodHut.class, 3, MathHelper.nextInt(p_getStructureVillageWeightedPieceList_0_, 2 + p_getStructureVillageWeightedPieceList_1_, 5 + p_getStructureVillageWeightedPieceList_1_ * 3)));
+        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.Hall.class, 15, MathHelper.nextInt(p_getStructureVillageWeightedPieceList_0_, 0 + p_getStructureVillageWeightedPieceList_1_, 2 + p_getStructureVillageWeightedPieceList_1_)));
+        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.Field1.class, 3, MathHelper.nextInt(p_getStructureVillageWeightedPieceList_0_, 1 + p_getStructureVillageWeightedPieceList_1_, 4 + p_getStructureVillageWeightedPieceList_1_)));
+        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.Field2.class, 3, MathHelper.nextInt(p_getStructureVillageWeightedPieceList_0_, 2 + p_getStructureVillageWeightedPieceList_1_, 4 + p_getStructureVillageWeightedPieceList_1_ * 2)));
+        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.House2.class, 15, MathHelper.nextInt(p_getStructureVillageWeightedPieceList_0_, 0, 1 + p_getStructureVillageWeightedPieceList_1_)));
+        lvt_2_1_.add(new VillagePieces.PieceWeight(VillagePieces.House3.class, 8, MathHelper.nextInt(p_getStructureVillageWeightedPieceList_0_, 0 + p_getStructureVillageWeightedPieceList_1_, 3 + p_getStructureVillageWeightedPieceList_1_ * 2)));
 
         lvt_2_1_.removeIf(o -> ((PieceWeight) o).villagePiecesLimit == 0);
 
@@ -121,7 +121,7 @@ public class VillagePieces {
                     VillagePieces.PieceWeight lvt_12_1_ = (VillagePieces.PieceWeight)var11.next();
                     lvt_10_1_ -= lvt_12_1_.villagePieceWeight;
                     if (lvt_10_1_ < 0) {
-                        if (!lvt_12_1_.canSpawnMoreVillagePiecesOfType(p_generateComponent_7_) || lvt_12_1_ == p_generateComponent_0_.lastPlaced && p_generateComponent_0_.structureVillageWeightedPieceList.size() > 1) {
+                        if (!lvt_12_1_.canSpawnMoreVillagePiecesOfType() || lvt_12_1_ == p_generateComponent_0_.lastPlaced && p_generateComponent_0_.structureVillageWeightedPieceList.size() > 1) {
                             break;
                         }
 
@@ -241,20 +241,20 @@ public class VillagePieces {
             this.cropTypeD = VillagePieces.Field2.func_197529_b(p_i45570_3_);
         }
 
-        protected void writeStructureToNBT(NBTTagCompound p_writeStructureToNBT_1_) {
-            super.writeStructureToNBT(p_writeStructureToNBT_1_);
-            p_writeStructureToNBT_1_.setTag("CA", NBTUtil.writeBlockState(this.cropTypeA));
-            p_writeStructureToNBT_1_.setTag("CB", NBTUtil.writeBlockState(this.cropTypeB));
-            p_writeStructureToNBT_1_.setTag("CC", NBTUtil.writeBlockState(this.cropTypeC));
-            p_writeStructureToNBT_1_.setTag("CD", NBTUtil.writeBlockState(this.cropTypeD));
+        protected void writeAdditional(NBTTagCompound p_writeAdditional_1_) {
+            super.writeAdditional(p_writeAdditional_1_);
+            p_writeAdditional_1_.put("CA", NBTUtil.writeBlockState(this.cropTypeA));
+            p_writeAdditional_1_.put("CB", NBTUtil.writeBlockState(this.cropTypeB));
+            p_writeAdditional_1_.put("CC", NBTUtil.writeBlockState(this.cropTypeC));
+            p_writeAdditional_1_.put("CD", NBTUtil.writeBlockState(this.cropTypeD));
         }
 
-        protected void readStructureFromNBT(NBTTagCompound p_readStructureFromNBT_1_, TemplateManager p_readStructureFromNBT_2_) {
-            super.readStructureFromNBT(p_readStructureFromNBT_1_, p_readStructureFromNBT_2_);
-            this.cropTypeA = NBTUtil.readBlockState(p_readStructureFromNBT_1_.getCompoundTag("CA"));
-            this.cropTypeB = NBTUtil.readBlockState(p_readStructureFromNBT_1_.getCompoundTag("CB"));
-            this.cropTypeC = NBTUtil.readBlockState(p_readStructureFromNBT_1_.getCompoundTag("CC"));
-            this.cropTypeD = NBTUtil.readBlockState(p_readStructureFromNBT_1_.getCompoundTag("CD"));
+        protected void readAdditional(NBTTagCompound p_readAdditional_1_, TemplateManager p_readAdditional_2_) {
+            super.readAdditional(p_readAdditional_1_, p_readAdditional_2_);
+            this.cropTypeA = NBTUtil.readBlockState(p_readAdditional_1_.getCompound("CA"));
+            this.cropTypeB = NBTUtil.readBlockState(p_readAdditional_1_.getCompound("CB"));
+            this.cropTypeC = NBTUtil.readBlockState(p_readAdditional_1_.getCompound("CC"));
+            this.cropTypeD = NBTUtil.readBlockState(p_readAdditional_1_.getCompound("CD"));
             if (!(this.cropTypeA.getBlock() instanceof BlockCrops)) {
                 this.cropTypeA = Blocks.WHEAT.getDefaultState();
             }
@@ -307,23 +307,23 @@ public class VillagePieces {
                 BlockCrops lvt_7_1_ = (BlockCrops)this.cropTypeA.getBlock();
                 int lvt_8_1_ = lvt_7_1_.getMaxAge();
                 int lvt_9_1_ = lvt_8_1_ / 3;
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeA.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_9_1_, lvt_8_1_)), 1, 1, lvt_6_2_, p_addComponentParts_3_);
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeA.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_9_1_, lvt_8_1_)), 2, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeA.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_9_1_, lvt_8_1_)), 1, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeA.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_9_1_, lvt_8_1_)), 2, 1, lvt_6_2_, p_addComponentParts_3_);
                 lvt_7_1_ = (BlockCrops)this.cropTypeB.getBlock();
                 int lvt_10_1_ = lvt_7_1_.getMaxAge();
                 int lvt_11_1_ = lvt_10_1_ / 3;
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeB.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_11_1_, lvt_10_1_)), 4, 1, lvt_6_2_, p_addComponentParts_3_);
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeB.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_11_1_, lvt_10_1_)), 5, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeB.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_11_1_, lvt_10_1_)), 4, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeB.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_11_1_, lvt_10_1_)), 5, 1, lvt_6_2_, p_addComponentParts_3_);
                 lvt_7_1_ = (BlockCrops)this.cropTypeC.getBlock();
                 int lvt_12_1_ = lvt_7_1_.getMaxAge();
                 int lvt_13_1_ = lvt_12_1_ / 3;
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeC.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_13_1_, lvt_12_1_)), 7, 1, lvt_6_2_, p_addComponentParts_3_);
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeC.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_13_1_, lvt_12_1_)), 8, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeC.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_13_1_, lvt_12_1_)), 7, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeC.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_13_1_, lvt_12_1_)), 8, 1, lvt_6_2_, p_addComponentParts_3_);
                 lvt_7_1_ = (BlockCrops)this.cropTypeD.getBlock();
                 int lvt_14_1_ = lvt_7_1_.getMaxAge();
                 int lvt_15_1_ = lvt_14_1_ / 3;
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeD.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_15_1_, lvt_14_1_)), 10, 1, lvt_6_2_, p_addComponentParts_3_);
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeD.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_15_1_, lvt_14_1_)), 11, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeD.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_15_1_, lvt_14_1_)), 10, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeD.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_15_1_, lvt_14_1_)), 11, 1, lvt_6_2_, p_addComponentParts_3_);
             }
 
             for(lvt_6_2_ = 0; lvt_6_2_ < 9; ++lvt_6_2_) {
@@ -352,16 +352,16 @@ public class VillagePieces {
             this.cropTypeB = func_197529_b(p_i45569_3_);
         }
 
-        protected void writeStructureToNBT(NBTTagCompound p_writeStructureToNBT_1_) {
-            super.writeStructureToNBT(p_writeStructureToNBT_1_);
-            p_writeStructureToNBT_1_.setTag("CA", NBTUtil.writeBlockState(this.cropTypeA));
-            p_writeStructureToNBT_1_.setTag("CB", NBTUtil.writeBlockState(this.cropTypeB));
+        protected void writeAdditional(NBTTagCompound p_writeAdditional_1_) {
+            super.writeAdditional(p_writeAdditional_1_);
+            p_writeAdditional_1_.put("CA", NBTUtil.writeBlockState(this.cropTypeA));
+            p_writeAdditional_1_.put("CB", NBTUtil.writeBlockState(this.cropTypeB));
         }
 
-        protected void readStructureFromNBT(NBTTagCompound p_readStructureFromNBT_1_, TemplateManager p_readStructureFromNBT_2_) {
-            super.readStructureFromNBT(p_readStructureFromNBT_1_, p_readStructureFromNBT_2_);
-            this.cropTypeA = NBTUtil.readBlockState(p_readStructureFromNBT_1_.getCompoundTag("CA"));
-            this.cropTypeB = NBTUtil.readBlockState(p_readStructureFromNBT_1_.getCompoundTag("CB"));
+        protected void readAdditional(NBTTagCompound p_readAdditional_1_, TemplateManager p_readAdditional_2_) {
+            super.readAdditional(p_readAdditional_1_, p_readAdditional_2_);
+            this.cropTypeA = NBTUtil.readBlockState(p_readAdditional_1_.getCompound("CA"));
+            this.cropTypeB = NBTUtil.readBlockState(p_readAdditional_1_.getCompound("CB"));
         }
 
         private static IBlockState func_197529_b(Random p_197529_0_) {
@@ -409,13 +409,13 @@ public class VillagePieces {
                 BlockCrops lvt_7_1_ = (BlockCrops)this.cropTypeA.getBlock();
                 int lvt_8_1_ = lvt_7_1_.getMaxAge();
                 int lvt_9_1_ = lvt_8_1_ / 3;
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeA.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_9_1_, lvt_8_1_)), 1, 1, lvt_6_2_, p_addComponentParts_3_);
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeA.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_9_1_, lvt_8_1_)), 2, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeA.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_9_1_, lvt_8_1_)), 1, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeA.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_9_1_, lvt_8_1_)), 2, 1, lvt_6_2_, p_addComponentParts_3_);
                 lvt_7_1_ = (BlockCrops)this.cropTypeB.getBlock();
                 int lvt_10_1_ = lvt_7_1_.getMaxAge();
                 int lvt_11_1_ = lvt_10_1_ / 3;
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeB.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_11_1_, lvt_10_1_)), 4, 1, lvt_6_2_, p_addComponentParts_3_);
-                this.setBlockState(p_addComponentParts_1_, this.cropTypeB.withProperty(lvt_7_1_.getAgeProperty(), MathHelper.getInt(p_addComponentParts_2_, lvt_11_1_, lvt_10_1_)), 5, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeB.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_11_1_, lvt_10_1_)), 4, 1, lvt_6_2_, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, this.cropTypeB.with(lvt_7_1_.getAgeProperty(), MathHelper.nextInt(p_addComponentParts_2_, lvt_11_1_, lvt_10_1_)), 5, 1, lvt_6_2_, p_addComponentParts_3_);
             }
 
             for(lvt_6_2_ = 0; lvt_6_2_ < 9; ++lvt_6_2_) {
@@ -446,14 +446,14 @@ public class VillagePieces {
             return canVillageGoDeeper(lvt_8_1_) && StructurePiece.findIntersecting(p_createPiece_1_, lvt_8_1_) == null ? new VillagePieces.House2(p_createPiece_0_, p_createPiece_7_, p_createPiece_2_, lvt_8_1_, p_createPiece_6_) : null;
         }
 
-        protected void writeStructureToNBT(NBTTagCompound p_writeStructureToNBT_1_) {
-            super.writeStructureToNBT(p_writeStructureToNBT_1_);
-            p_writeStructureToNBT_1_.setBoolean("Chest", this.hasMadeChest);
+        protected void writeAdditional(NBTTagCompound p_writeAdditional_1_) {
+            super.writeAdditional(p_writeAdditional_1_);
+            p_writeAdditional_1_.putBoolean("Chest", this.hasMadeChest);
         }
 
-        protected void readStructureFromNBT(NBTTagCompound p_readStructureFromNBT_1_, TemplateManager p_readStructureFromNBT_2_) {
-            super.readStructureFromNBT(p_readStructureFromNBT_1_, p_readStructureFromNBT_2_);
-            this.hasMadeChest = p_readStructureFromNBT_1_.getBoolean("Chest");
+        protected void readAdditional(NBTTagCompound p_readAdditional_1_, TemplateManager p_readAdditional_2_) {
+            super.readAdditional(p_readAdditional_1_, p_readAdditional_2_);
+            this.hasMadeChest = p_readAdditional_1_.getBoolean("Chest");
         }
 
         public boolean addComponentParts(IWorld p_addComponentParts_1_, Random p_addComponentParts_2_, MutableBoundingBox p_addComponentParts_3_, ChunkPos p_addComponentParts_4_) {
@@ -467,10 +467,10 @@ public class VillagePieces {
             }
 
             IBlockState lvt_5_1_ = Blocks.COBBLESTONE.getDefaultState();
-            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
-            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.WEST));
+            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.NORTH));
+            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.WEST));
             IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_PLANKS.getDefaultState());
-            IBlockState lvt_9_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
+            IBlockState lvt_9_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.NORTH));
             IBlockState lvt_10_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_LOG.getDefaultState());
             IBlockState lvt_11_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_FENCE.getDefaultState());
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 0, 1, 0, 9, 4, 6, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
@@ -492,17 +492,17 @@ public class VillagePieces {
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 6, 1, 4, 9, 4, 6, lvt_5_1_, lvt_5_1_, false);
             this.setBlockState(p_addComponentParts_1_, Blocks.LAVA.getDefaultState(), 7, 1, 5, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, Blocks.LAVA.getDefaultState(), 8, 1, 5, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.IRON_BARS.getDefaultState().withProperty(BlockIronBars.field_196409_a, true).withProperty(BlockIronBars.field_196413_c, true), 9, 2, 5, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.IRON_BARS.getDefaultState().withProperty(BlockIronBars.field_196409_a, true), 9, 2, 4, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.IRON_BARS.getDefaultState().with(BlockIronBars.NORTH, true).with(BlockIronBars.SOUTH, true), 9, 2, 5, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.IRON_BARS.getDefaultState().with(BlockIronBars.NORTH, true), 9, 2, 4, p_addComponentParts_3_);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 7, 2, 4, 8, 2, 5, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
             this.setBlockState(p_addComponentParts_1_, lvt_5_1_, 6, 1, 3, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.FURNACE.getDefaultState().withProperty(BlockFurnace.FACING, EnumFacing.SOUTH), 6, 2, 3, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.FURNACE.getDefaultState().withProperty(BlockFurnace.FACING, EnumFacing.SOUTH), 6, 3, 3, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.STONE_SLAB.getDefaultState().withProperty(BlockSlab.field_196505_a, SlabType.DOUBLE), 8, 1, 1, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 4, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 2, 2, 6, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 4, 2, 6, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.FURNACE.getDefaultState().with(BlockFurnace.FACING, EnumFacing.SOUTH), 6, 2, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.FURNACE.getDefaultState().with(BlockFurnace.FACING, EnumFacing.SOUTH), 6, 3, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.STONE_SLAB.getDefaultState().with(BlockSlab.TYPE, SlabType.DOUBLE), 8, 1, 1, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 4, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 2, 2, 6, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 4, 2, 6, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 2, 1, 4, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, Blocks.OAK_PRESSURE_PLATE.getDefaultState(), 2, 2, 4, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_8_1_, 1, 1, 5, p_addComponentParts_3_);
@@ -565,10 +565,10 @@ public class VillagePieces {
             }
 
             IBlockState lvt_5_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE.getDefaultState());
-            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
-            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
-            IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-            IBlockState lvt_9_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.WEST));
+            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.NORTH));
+            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.SOUTH));
+            IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.EAST));
+            IBlockState lvt_9_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.WEST));
             IBlockState lvt_10_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_PLANKS.getDefaultState());
             IBlockState lvt_11_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_LOG.getDefaultState());
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 1, 1, 7, 4, 4, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
@@ -633,26 +633,26 @@ public class VillagePieces {
 
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 0, 2, 1, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 0, 2, 4, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 3, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 4, 2, 0, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 5, 2, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 5, 2, 0, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 6, 2, 0, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 8, 2, 1, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 2, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 2, 3, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 8, 2, 4, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_10_1_, 8, 2, 5, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 8, 2, 6, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 2, 7, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 2, 8, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 2, 7, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 2, 8, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 8, 2, 9, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 2, 2, 6, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 2, 2, 7, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 2, 2, 8, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 2, 2, 7, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 2, 2, 8, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 2, 2, 9, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 4, 4, 10, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 5, 4, 10, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 5, 4, 10, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 6, 4, 10, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_10_1_, 5, 5, 10, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, Blocks.AIR.getDefaultState(), 2, 1, 0, p_addComponentParts_3_);
@@ -712,9 +712,9 @@ public class VillagePieces {
             }
 
             IBlockState lvt_5_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE.getDefaultState());
-            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
-            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
-            IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.WEST));
+            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.NORTH));
+            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.SOUTH));
+            IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.WEST));
             IBlockState lvt_9_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_PLANKS.getDefaultState());
             IBlockState lvt_10_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_LOG.getDefaultState());
             IBlockState lvt_11_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_FENCE.getDefaultState());
@@ -722,12 +722,12 @@ public class VillagePieces {
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 2, 1, 6, 8, 4, 10, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 2, 0, 6, 8, 0, 10, Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState(), false);
             this.setBlockState(p_addComponentParts_1_, lvt_5_1_, 6, 0, 6, p_addComponentParts_3_);
-            IBlockState lvt_12_1_ = lvt_11_1_.withProperty(BlockFence.field_196409_a, true).withProperty(BlockFence.field_196413_c, true);
-            IBlockState lvt_13_1_ = lvt_11_1_.withProperty(BlockFence.field_196414_y, true).withProperty(BlockFence.field_196411_b, true);
+            IBlockState lvt_12_1_ = lvt_11_1_.with(BlockFence.NORTH, true).with(BlockFence.SOUTH, true);
+            IBlockState lvt_13_1_ = lvt_11_1_.with(BlockFence.WEST, true).with(BlockFence.EAST, true);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 2, 1, 6, 2, 1, 9, lvt_12_1_, lvt_12_1_, false);
-            this.setBlockState(p_addComponentParts_1_, lvt_11_1_.withProperty(BlockFence.field_196413_c, true).withProperty(BlockFence.field_196411_b, true), 2, 1, 10, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, lvt_11_1_.with(BlockFence.SOUTH, true).with(BlockFence.EAST, true), 2, 1, 10, p_addComponentParts_3_);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 8, 1, 6, 8, 1, 9, lvt_12_1_, lvt_12_1_, false);
-            this.setBlockState(p_addComponentParts_1_, lvt_11_1_.withProperty(BlockFence.field_196413_c, true).withProperty(BlockFence.field_196414_y, true), 8, 1, 10, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, lvt_11_1_.with(BlockFence.SOUTH, true).with(BlockFence.WEST, true), 8, 1, 10, p_addComponentParts_3_);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 3, 1, 10, 7, 1, 10, lvt_13_1_, lvt_13_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 0, 1, 7, 0, 4, lvt_9_1_, lvt_9_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 0, 0, 0, 0, 3, 5, lvt_5_1_, lvt_5_1_, false);
@@ -758,19 +758,19 @@ public class VillagePieces {
             this.setBlockState(p_addComponentParts_1_, lvt_10_1_, 0, 2, 4, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_10_1_, 8, 2, 1, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_10_1_, 8, 2, 4, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 3, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 2, 3, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 2, 2, 5, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 3, 2, 5, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 5, 2, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 2, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 2, 2, 5, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 3, 2, 5, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 5, 2, 0, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_11_1_, 2, 1, 3, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, Blocks.OAK_PRESSURE_PLATE.getDefaultState(), 2, 2, 3, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_9_1_, 1, 1, 4, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_14_1_, 2, 1, 4, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_8_1_, 1, 1, 3, p_addComponentParts_3_);
-            IBlockState lvt_17_2_ = Blocks.STONE_SLAB.getDefaultState().withProperty(BlockSlab.field_196505_a, SlabType.DOUBLE);
+            IBlockState lvt_17_2_ = Blocks.STONE_SLAB.getDefaultState().with(BlockSlab.TYPE, SlabType.DOUBLE);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 5, 0, 1, 7, 0, 3, lvt_17_2_, lvt_17_2_, false);
             this.setBlockState(p_addComponentParts_1_, lvt_17_2_, 6, 1, 1, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_17_2_, 6, 1, 2, p_addComponentParts_3_);
@@ -821,16 +821,16 @@ public class VillagePieces {
             this.tablePosition = p_i45565_3_.nextInt(3);
         }
 
-        protected void writeStructureToNBT(NBTTagCompound p_writeStructureToNBT_1_) {
-            super.writeStructureToNBT(p_writeStructureToNBT_1_);
-            p_writeStructureToNBT_1_.setInteger("T", this.tablePosition);
-            p_writeStructureToNBT_1_.setBoolean("C", this.isTallHouse);
+        protected void writeAdditional(NBTTagCompound p_writeAdditional_1_) {
+            super.writeAdditional(p_writeAdditional_1_);
+            p_writeAdditional_1_.putInt("T", this.tablePosition);
+            p_writeAdditional_1_.putBoolean("C", this.isTallHouse);
         }
 
-        protected void readStructureFromNBT(NBTTagCompound p_readStructureFromNBT_1_, TemplateManager p_readStructureFromNBT_2_) {
-            super.readStructureFromNBT(p_readStructureFromNBT_1_, p_readStructureFromNBT_2_);
-            this.tablePosition = p_readStructureFromNBT_1_.getInteger("T");
-            this.isTallHouse = p_readStructureFromNBT_1_.getBoolean("C");
+        protected void readAdditional(NBTTagCompound p_readAdditional_1_, TemplateManager p_readAdditional_2_) {
+            super.readAdditional(p_readAdditional_1_, p_readAdditional_2_);
+            this.tablePosition = p_readAdditional_1_.getInt("T");
+            this.isTallHouse = p_readAdditional_1_.getBoolean("C");
         }
 
         public static VillagePieces.WoodHut createPiece(VillagePieces.Start p_createPiece_0_, List<StructurePiece> p_createPiece_1_, Random p_createPiece_2_, int p_createPiece_3_, int p_createPiece_4_, int p_createPiece_5_, EnumFacing p_createPiece_6_, int p_createPiece_7_) {
@@ -850,7 +850,7 @@ public class VillagePieces {
 
             IBlockState lvt_5_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE.getDefaultState());
             IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_PLANKS.getDefaultState());
-            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
+            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.NORTH));
             IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_LOG.getDefaultState());
             IBlockState lvt_9_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_FENCE.getDefaultState());
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 1, 1, 3, 5, 4, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
@@ -880,10 +880,10 @@ public class VillagePieces {
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 3, 1, 1, 3, 3, 3, lvt_6_1_, lvt_6_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 1, 0, 2, 3, 0, lvt_6_1_, lvt_6_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 1, 4, 2, 3, 4, lvt_6_1_, lvt_6_1_, false);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 3, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 3, 2, 2, p_addComponentParts_3_);
             if (this.tablePosition > 0) {
-                this.setBlockState(p_addComponentParts_1_, lvt_9_1_.withProperty(BlockFence.field_196409_a, true).withProperty(this.tablePosition == 1 ? BlockFence.field_196414_y : BlockFence.field_196411_b, true), this.tablePosition, 1, 3, p_addComponentParts_3_);
+                this.setBlockState(p_addComponentParts_1_, lvt_9_1_.with(BlockFence.NORTH, true).with(this.tablePosition == 1 ? BlockFence.WEST : BlockFence.EAST, true), this.tablePosition, 1, 3, p_addComponentParts_3_);
                 this.setBlockState(p_addComponentParts_1_, Blocks.OAK_PRESSURE_PLATE.getDefaultState(), this.tablePosition, 2, 3, p_addComponentParts_3_);
             }
 
@@ -935,11 +935,11 @@ public class VillagePieces {
             }
 
             IBlockState lvt_5_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE.getDefaultState());
-            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
-            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
-            IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.NORTH));
+            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.SOUTH));
+            IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.EAST));
             IBlockState lvt_9_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_PLANKS.getDefaultState());
-            IBlockState lvt_10_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
+            IBlockState lvt_10_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.NORTH));
             IBlockState lvt_11_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_FENCE.getDefaultState());
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 1, 1, 7, 5, 4, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 0, 0, 0, 8, 0, 5, lvt_5_1_, lvt_5_1_, false);
@@ -967,24 +967,24 @@ public class VillagePieces {
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 2, 5, 7, 4, 5, lvt_9_1_, lvt_9_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 8, 2, 1, 8, 4, 4, lvt_9_1_, lvt_9_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 2, 0, 7, 4, 0, lvt_9_1_, lvt_9_1_, false);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 4, 2, 0, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 5, 2, 0, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 6, 2, 0, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 4, 3, 0, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 5, 3, 0, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 6, 3, 0, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 3, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 3, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 3, 3, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 2, 3, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 3, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 8, 3, 3, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 2, 2, 5, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 3, 2, 5, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 5, 2, 5, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 6, 2, 5, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 4, 2, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 5, 2, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 6, 2, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 4, 3, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 5, 3, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 6, 3, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 3, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 3, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 2, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 3, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 8, 3, 3, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 2, 2, 5, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 3, 2, 5, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 5, 2, 5, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 6, 2, 5, p_addComponentParts_3_);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 4, 1, 7, 4, 1, lvt_9_1_, lvt_9_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 4, 4, 7, 4, 4, lvt_9_1_, lvt_9_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 3, 4, 7, 3, 4, Blocks.BOOKSHELF.getDefaultState(), Blocks.BOOKSHELF.getDefaultState(), false);
@@ -1051,9 +1051,9 @@ public class VillagePieces {
             }
 
             IBlockState lvt_5_1_ = Blocks.COBBLESTONE.getDefaultState();
-            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
-            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.WEST));
-            IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+            IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.NORTH));
+            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.WEST));
+            IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.EAST));
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 1, 1, 3, 3, 7, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 5, 1, 3, 9, 3, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 0, 0, 3, 0, 8, lvt_5_1_, lvt_5_1_, false);
@@ -1081,26 +1081,26 @@ public class VillagePieces {
             this.setBlockState(p_addComponentParts_1_, lvt_6_1_, 3, 1, 5, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_7_1_, 1, 2, 7, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_8_1_, 3, 2, 7, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 3, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 4, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 4, 3, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 6, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 7, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 4, 6, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 4, 7, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 2, 6, 0, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 2, 7, 0, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 2, 6, 4, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 2, 7, 4, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 3, 6, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 4, 3, 6, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 2, 3, 8, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 3, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 4, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 4, 3, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 6, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 7, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 4, 6, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 4, 7, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 2, 6, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 2, 7, 0, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 2, 6, 4, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 2, 7, 4, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 3, 6, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 4, 3, 6, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 2, 3, 8, p_addComponentParts_3_);
             this.placeTorch(p_addComponentParts_1_, EnumFacing.SOUTH, 2, 4, 7, p_addComponentParts_3_);
             this.placeTorch(p_addComponentParts_1_, EnumFacing.EAST, 1, 4, 6, p_addComponentParts_3_);
             this.placeTorch(p_addComponentParts_1_, EnumFacing.WEST, 3, 4, 6, p_addComponentParts_3_);
             this.placeTorch(p_addComponentParts_1_, EnumFacing.NORTH, 2, 4, 5, p_addComponentParts_3_);
-            IBlockState lvt_9_1_ = Blocks.LADDER.getDefaultState().withProperty(BlockLadder.FACING, EnumFacing.WEST);
+            IBlockState lvt_9_1_ = Blocks.LADDER.getDefaultState().with(BlockLadder.FACING, EnumFacing.WEST);
 
             int lvt_10_2_;
             for(lvt_10_2_ = 1; lvt_10_2_ <= 9; ++lvt_10_2_) {
@@ -1146,14 +1146,14 @@ public class VillagePieces {
             this.isRoofAccessible = p_i45566_3_.nextBoolean();
         }
 
-        protected void writeStructureToNBT(NBTTagCompound p_writeStructureToNBT_1_) {
-            super.writeStructureToNBT(p_writeStructureToNBT_1_);
-            p_writeStructureToNBT_1_.setBoolean("Terrace", this.isRoofAccessible);
+        protected void writeAdditional(NBTTagCompound p_writeAdditional_1_) {
+            super.writeAdditional(p_writeAdditional_1_);
+            p_writeAdditional_1_.putBoolean("Terrace", this.isRoofAccessible);
         }
 
-        protected void readStructureFromNBT(NBTTagCompound p_readStructureFromNBT_1_, TemplateManager p_readStructureFromNBT_2_) {
-            super.readStructureFromNBT(p_readStructureFromNBT_1_, p_readStructureFromNBT_2_);
-            this.isRoofAccessible = p_readStructureFromNBT_1_.getBoolean("Terrace");
+        protected void readAdditional(NBTTagCompound p_readAdditional_1_, TemplateManager p_readAdditional_2_) {
+            super.readAdditional(p_readAdditional_1_, p_readAdditional_2_);
+            this.isRoofAccessible = p_readAdditional_1_.getBoolean("Terrace");
         }
 
         public static VillagePieces.House4Garden createPiece(VillagePieces.Start p_createPiece_0_, List<StructurePiece> p_createPiece_1_, Random p_createPiece_2_, int p_createPiece_3_, int p_createPiece_4_, int p_createPiece_5_, EnumFacing p_createPiece_6_, int p_createPiece_7_) {
@@ -1173,7 +1173,7 @@ public class VillagePieces {
 
             IBlockState lvt_5_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE.getDefaultState());
             IBlockState lvt_6_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_PLANKS.getDefaultState());
-            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
+            IBlockState lvt_7_1_ = this.getBiomeSpecificBlockState(Blocks.COBBLESTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, EnumFacing.NORTH));
             IBlockState lvt_8_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_LOG.getDefaultState());
             IBlockState lvt_9_1_ = this.getBiomeSpecificBlockState(Blocks.OAK_FENCE.getDefaultState());
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 0, 0, 0, 4, 0, 4, lvt_5_1_, lvt_5_1_, false);
@@ -1194,9 +1194,9 @@ public class VillagePieces {
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 0, 1, 1, 0, 3, 3, lvt_6_1_, lvt_6_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 4, 1, 1, 4, 3, 3, lvt_6_1_, lvt_6_1_, false);
             this.fillWithBlocks(p_addComponentParts_1_, p_addComponentParts_3_, 1, 1, 4, 3, 3, 4, lvt_6_1_, lvt_6_1_, false);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 0, 2, 2, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196411_b, true).withProperty(BlockGlassPane.field_196414_y, true), 2, 2, 4, p_addComponentParts_3_);
-            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().withProperty(BlockGlassPane.field_196413_c, true).withProperty(BlockGlassPane.field_196409_a, true), 4, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 0, 2, 2, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.EAST, true).with(BlockGlassPane.WEST, true), 2, 2, 4, p_addComponentParts_3_);
+            this.setBlockState(p_addComponentParts_1_, Blocks.GLASS_PANE.getDefaultState().with(BlockGlassPane.SOUTH, true).with(BlockGlassPane.NORTH, true), 4, 2, 2, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_6_1_, 1, 1, 0, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_6_1_, 1, 2, 0, p_addComponentParts_3_);
             this.setBlockState(p_addComponentParts_1_, lvt_6_1_, 1, 3, 0, p_addComponentParts_3_);
@@ -1220,7 +1220,7 @@ public class VillagePieces {
                         if (lvt_14_1_ || lvt_15_1_) {
                             boolean lvt_16_1_ = lvt_12_1_ == 0 || lvt_12_1_ == 4;
                             boolean lvt_17_1_ = lvt_13_1_ == 0 || lvt_13_1_ == 4;
-                            IBlockState lvt_18_1_ = lvt_9_1_.withProperty(BlockFence.field_196413_c, lvt_16_1_ && lvt_13_1_ != 0).withProperty(BlockFence.field_196409_a, lvt_16_1_ && lvt_13_1_ != 4).withProperty(BlockFence.field_196414_y, lvt_17_1_ && lvt_12_1_ != 0).withProperty(BlockFence.field_196411_b, lvt_17_1_ && lvt_12_1_ != 4);
+                            IBlockState lvt_18_1_ = lvt_9_1_.with(BlockFence.SOUTH, lvt_16_1_ && lvt_13_1_ != 0).with(BlockFence.NORTH, lvt_16_1_ && lvt_13_1_ != 4).with(BlockFence.WEST, lvt_17_1_ && lvt_12_1_ != 0).with(BlockFence.EAST, lvt_17_1_ && lvt_12_1_ != 4);
                             this.setBlockState(p_addComponentParts_1_, lvt_18_1_, lvt_12_1_, 5, lvt_13_1_, p_addComponentParts_3_);
                         }
                     }
@@ -1228,7 +1228,7 @@ public class VillagePieces {
             }
 
             if (this.isRoofAccessible) {
-                IBlockState lvt_10_2_ = Blocks.LADDER.getDefaultState().withProperty(BlockLadder.FACING, EnumFacing.SOUTH);
+                IBlockState lvt_10_2_ = Blocks.LADDER.getDefaultState().with(BlockLadder.FACING, EnumFacing.SOUTH);
                 this.setBlockState(p_addComponentParts_1_, lvt_10_2_, 3, 1, 3, p_addComponentParts_3_);
                 this.setBlockState(p_addComponentParts_1_, lvt_10_2_, 3, 2, 3, p_addComponentParts_3_);
                 this.setBlockState(p_addComponentParts_1_, lvt_10_2_, 3, 3, 3, p_addComponentParts_3_);
@@ -1262,14 +1262,14 @@ public class VillagePieces {
             this.length = Math.max(p_i45562_4_.getXSize(), p_i45562_4_.getZSize());
         }
 
-        protected void writeStructureToNBT(NBTTagCompound p_writeStructureToNBT_1_) {
-            super.writeStructureToNBT(p_writeStructureToNBT_1_);
-            p_writeStructureToNBT_1_.setInteger("Length", this.length);
+        protected void writeAdditional(NBTTagCompound p_writeAdditional_1_) {
+            super.writeAdditional(p_writeAdditional_1_);
+            p_writeAdditional_1_.putInt("Length", this.length);
         }
 
-        protected void readStructureFromNBT(NBTTagCompound p_readStructureFromNBT_1_, TemplateManager p_readStructureFromNBT_2_) {
-            super.readStructureFromNBT(p_readStructureFromNBT_1_, p_readStructureFromNBT_2_);
-            this.length = p_readStructureFromNBT_1_.getInteger("Length");
+        protected void readAdditional(NBTTagCompound p_readAdditional_1_, TemplateManager p_readAdditional_2_) {
+            super.readAdditional(p_readAdditional_1_, p_readAdditional_2_);
+            this.length = p_readAdditional_1_.getInt("Length");
         }
 
         public void buildComponent(StructurePiece p_buildComponent_1_, List<StructurePiece> p_buildComponent_2_, Random p_buildComponent_3_) {
@@ -1331,7 +1331,7 @@ public class VillagePieces {
         }
 
         public static MutableBoundingBox findPieceBox(VillagePieces.Start p_findPieceBox_0_, List<StructurePiece> p_findPieceBox_1_, Random p_findPieceBox_2_, int p_findPieceBox_3_, int p_findPieceBox_4_, int p_findPieceBox_5_, EnumFacing p_findPieceBox_6_) {
-            for(int lvt_7_1_ = 7 * MathHelper.getInt(p_findPieceBox_2_, 3, 5); lvt_7_1_ >= 7; lvt_7_1_ -= 7) {
+            for(int lvt_7_1_ = 7 * MathHelper.nextInt(p_findPieceBox_2_, 3, 5); lvt_7_1_ >= 7; lvt_7_1_ -= 7) {
                 MutableBoundingBox lvt_8_1_ = MutableBoundingBox.getComponentToAddBoundingBox(p_findPieceBox_3_, p_findPieceBox_4_, p_findPieceBox_5_, 0, 0, 0, 3, 3, lvt_7_1_, p_findPieceBox_6_);
                 if (StructurePiece.findIntersecting(p_findPieceBox_1_, lvt_8_1_) == null) {
                     return lvt_8_1_;
@@ -1354,7 +1354,7 @@ public class VillagePieces {
                 for(int lvt_11_1_ = this.boundingBox.minZ; lvt_11_1_ <= this.boundingBox.maxZ; ++lvt_11_1_) {
                     lvt_9_1_.setPos(lvt_10_1_, 64, lvt_11_1_);
                     if (p_addComponentParts_3_.isVecInside(lvt_9_1_)) {
-                        int lvt_12_1_ = p_addComponentParts_1_.getTopBlockY(net.minecraft.world.gen.Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, lvt_9_1_.getX(), lvt_9_1_.getZ());
+                        int lvt_12_1_ = p_addComponentParts_1_.getHeight(net.minecraft.world.gen.Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, lvt_9_1_.getX(), lvt_9_1_.getZ());
                         lvt_9_1_.setPos(lvt_9_1_.getX(), lvt_12_1_, lvt_9_1_.getZ()).move(EnumFacing.DOWN);
                         if (lvt_9_1_.getY() < p_addComponentParts_1_.getSeaLevel()) {
                             lvt_9_1_.setY(p_addComponentParts_1_.getSeaLevel() - 1);
@@ -1501,22 +1501,22 @@ public class VillagePieces {
 
         }
 
-        protected void writeStructureToNBT(NBTTagCompound p_writeStructureToNBT_1_) {
-            p_writeStructureToNBT_1_.setInteger("HPos", this.averageGroundLvl);
-            p_writeStructureToNBT_1_.setInteger("VCount", this.villagersSpawned);
-            p_writeStructureToNBT_1_.setByte("Type", (byte)this.structureType.func_202604_a());
-            p_writeStructureToNBT_1_.setBoolean("Zombie", this.isZombieInfested);
+        protected void writeAdditional(NBTTagCompound p_writeAdditional_1_) {
+            p_writeAdditional_1_.putInt("HPos", this.averageGroundLvl);
+            p_writeAdditional_1_.putInt("VCount", this.villagersSpawned);
+            p_writeAdditional_1_.putByte("Type", (byte)this.structureType.func_202604_a());
+            p_writeAdditional_1_.putBoolean("Zombie", this.isZombieInfested);
         }
 
-        protected void readStructureFromNBT(NBTTagCompound p_readStructureFromNBT_1_, TemplateManager p_readStructureFromNBT_2_) {
-            this.averageGroundLvl = p_readStructureFromNBT_1_.getInteger("HPos");
-            this.villagersSpawned = p_readStructureFromNBT_1_.getInteger("VCount");
-            this.structureType = VillagePieces.Type.func_202603_a(p_readStructureFromNBT_1_.getByte("Type"));
-            if (p_readStructureFromNBT_1_.getBoolean("Desert")) {
+        protected void readAdditional(NBTTagCompound p_readAdditional_1_, TemplateManager p_readAdditional_2_) {
+            this.averageGroundLvl = p_readAdditional_1_.getInt("HPos");
+            this.villagersSpawned = p_readAdditional_1_.getInt("VCount");
+            this.structureType = VillagePieces.Type.func_202603_a(p_readAdditional_1_.getByte("Type"));
+            if (p_readAdditional_1_.getBoolean("Desert")) {
                 this.structureType = VillagePieces.Type.SANDSTONE;
             }
 
-            this.isZombieInfested = p_readStructureFromNBT_1_.getBoolean("Zombie");
+            this.isZombieInfested = p_readAdditional_1_.getBoolean("Zombie");
         }
 
         @Nullable
@@ -1568,7 +1568,7 @@ public class VillagePieces {
                 for(int lvt_7_1_ = this.boundingBox.minX; lvt_7_1_ <= this.boundingBox.maxX; ++lvt_7_1_) {
                     lvt_5_1_.setPos(lvt_7_1_, 64, lvt_6_1_);
                     if (p_getAverageGroundLevel_2_.isVecInside(lvt_5_1_)) {
-                        lvt_3_1_ += p_getAverageGroundLevel_1_.getTopBlock(net.minecraft.world.gen.Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, lvt_5_1_).getY();
+                        lvt_3_1_ += p_getAverageGroundLevel_1_.getHeight(net.minecraft.world.gen.Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, lvt_5_1_).getY();
                         ++lvt_4_1_;
                     }
                 }
@@ -1599,7 +1599,7 @@ public class VillagePieces {
                     if (this.isZombieInfested) {
                         EntityZombieVillager lvt_11_1_ = new EntityZombieVillager(p_spawnVillagers_1_.getWorld());
                         lvt_11_1_.setLocationAndAngles((double)lvt_8_1_ + 0.5D, (double)lvt_9_1_, (double)lvt_10_1_ + 0.5D, 0.0F, 0.0F);
-                        lvt_11_1_.func_204210_a(p_spawnVillagers_1_.getDifficultyForLocation(new BlockPos(lvt_11_1_)), null, null);
+                        lvt_11_1_.onInitialSpawn(p_spawnVillagers_1_.getDifficultyForLocation(new BlockPos(lvt_11_1_)), null, null);
                         lvt_11_1_.setProfession(this.chooseProfession(lvt_7_1_, 0));
                         lvt_11_1_.enablePersistence();
                         p_spawnVillagers_1_.spawnEntity(lvt_11_1_);
@@ -1622,20 +1622,20 @@ public class VillagePieces {
         protected IBlockState getBiomeSpecificBlockState(IBlockState p_getBiomeSpecificBlockState_1_) {
             Block lvt_2_1_ = p_getBiomeSpecificBlockState_1_.getBlock();
             if (this.structureType == VillagePieces.Type.SANDSTONE) {
-                if (lvt_2_1_.isTagged(BlockTags.LOGS) || lvt_2_1_ == Blocks.COBBLESTONE) {
+                if (lvt_2_1_.isIn(BlockTags.LOGS) || lvt_2_1_ == Blocks.COBBLESTONE) {
                     return Blocks.SANDSTONE.getDefaultState();
                 }
 
-                if (lvt_2_1_.isTagged(BlockTags.PLANKS)) {
+                if (lvt_2_1_.isIn(BlockTags.PLANKS)) {
                     return Blocks.CUT_SANDSTONE.getDefaultState();
                 }
 
                 if (lvt_2_1_ == Blocks.OAK_STAIRS) {
-                    return Blocks.SANDSTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.SANDSTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.COBBLESTONE_STAIRS) {
-                    return Blocks.SANDSTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.SANDSTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.GRAVEL) {
@@ -1646,16 +1646,16 @@ public class VillagePieces {
                     return Blocks.BIRCH_PRESSURE_PLATE.getDefaultState();
                 }
             } else if (this.structureType == VillagePieces.Type.SPRUCE) {
-                if (lvt_2_1_.isTagged(BlockTags.LOGS)) {
-                    return Blocks.SPRUCE_LOG.getDefaultState().withProperty(BlockLog.AXIS, p_getBiomeSpecificBlockState_1_.getValue(BlockLog.AXIS));
+                if (lvt_2_1_.isIn(BlockTags.LOGS)) {
+                    return Blocks.SPRUCE_LOG.getDefaultState().with(BlockLog.AXIS, p_getBiomeSpecificBlockState_1_.get(BlockLog.AXIS));
                 }
 
-                if (lvt_2_1_.isTagged(BlockTags.PLANKS)) {
+                if (lvt_2_1_.isIn(BlockTags.PLANKS)) {
                     return Blocks.SPRUCE_PLANKS.getDefaultState();
                 }
 
                 if (lvt_2_1_ == Blocks.OAK_STAIRS) {
-                    return Blocks.SPRUCE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.SPRUCE_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.OAK_FENCE) {
@@ -1666,20 +1666,20 @@ public class VillagePieces {
                     return Blocks.SPRUCE_PRESSURE_PLATE.getDefaultState();
                 }
             } else if (this.structureType == VillagePieces.Type.ACACIA) {
-                if (lvt_2_1_.isTagged(BlockTags.LOGS)) {
-                    return Blocks.ACACIA_LOG.getDefaultState().withProperty(BlockLog.AXIS, p_getBiomeSpecificBlockState_1_.getValue(BlockLog.AXIS));
+                if (lvt_2_1_.isIn(BlockTags.LOGS)) {
+                    return Blocks.ACACIA_LOG.getDefaultState().with(BlockLog.AXIS, p_getBiomeSpecificBlockState_1_.get(BlockLog.AXIS));
                 }
 
-                if (lvt_2_1_.isTagged(BlockTags.PLANKS)) {
+                if (lvt_2_1_.isIn(BlockTags.PLANKS)) {
                     return Blocks.ACACIA_PLANKS.getDefaultState();
                 }
 
                 if (lvt_2_1_ == Blocks.OAK_STAIRS) {
-                    return Blocks.ACACIA_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.ACACIA_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.COBBLESTONE) {
-                    return Blocks.ACACIA_LOG.getDefaultState().withProperty(BlockLog.AXIS, Axis.Y);
+                    return Blocks.ACACIA_LOG.getDefaultState().with(BlockLog.AXIS, Axis.Y);
                 }
 
                 if (lvt_2_1_ == Blocks.OAK_FENCE) {
@@ -1690,20 +1690,20 @@ public class VillagePieces {
                     return Blocks.ACACIA_PRESSURE_PLATE.getDefaultState();
                 }
             } else if (this.structureType == Type.RED_SANDSTONE) {
-                if (lvt_2_1_.isTagged(BlockTags.LOGS) || lvt_2_1_ == Blocks.COBBLESTONE) {
+                if (lvt_2_1_.isIn(BlockTags.LOGS) || lvt_2_1_ == Blocks.COBBLESTONE) {
                     return Blocks.RED_SANDSTONE.getDefaultState();
                 }
 
-                if (lvt_2_1_.isTagged(BlockTags.PLANKS)) {
+                if (lvt_2_1_.isIn(BlockTags.PLANKS)) {
                     return Blocks.CUT_RED_SANDSTONE.getDefaultState();
                 }
 
                 if (lvt_2_1_ == Blocks.OAK_STAIRS) {
-                    return Blocks.RED_SANDSTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.RED_SANDSTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.COBBLESTONE_STAIRS) {
-                    return Blocks.RED_SANDSTONE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.RED_SANDSTONE_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.GRAVEL) {
@@ -1714,20 +1714,20 @@ public class VillagePieces {
                     return Blocks.ACACIA_PRESSURE_PLATE.getDefaultState();
                 }
             } else if (this.structureType == Type.BROWN_MUSHROOM) {
-                if (lvt_2_1_.isTagged(BlockTags.LOGS) || lvt_2_1_ == Blocks.COBBLESTONE) {
-                    return Blocks.BROWN_MUSHROOM_BLOCK.getDefaultState().withProperty(BlockHugeMushroom.field_196459_a, true);
+                if (lvt_2_1_.isIn(BlockTags.LOGS) || lvt_2_1_ == Blocks.COBBLESTONE) {
+                    return Blocks.BROWN_MUSHROOM_BLOCK.getDefaultState().with(BlockHugeMushroom.NORTH, true);
                 }
 
-                if (lvt_2_1_.isTagged(BlockTags.PLANKS)) {
+                if (lvt_2_1_.isIn(BlockTags.PLANKS)) {
                     return Blocks.BROWN_MUSHROOM_BLOCK.getDefaultState();
                 }
 
                 if (lvt_2_1_ == Blocks.OAK_STAIRS) {
-                    return Blocks.SPRUCE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.SPRUCE_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.COBBLESTONE_STAIRS) {
-                    return Blocks.SPRUCE_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.SPRUCE_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.GRAVEL) {
@@ -1738,20 +1738,20 @@ public class VillagePieces {
                     return Blocks.SPRUCE_PRESSURE_PLATE.getDefaultState();
                 }
             } else if (this.structureType == Type.RED_MUSHROOM) {
-                if (lvt_2_1_.isTagged(BlockTags.LOGS) || lvt_2_1_ == Blocks.COBBLESTONE) {
-                    return Blocks.RED_MUSHROOM_BLOCK.getDefaultState().withProperty(BlockHugeMushroom.field_196459_a, true);
+                if (lvt_2_1_.isIn(BlockTags.LOGS) || lvt_2_1_ == Blocks.COBBLESTONE) {
+                    return Blocks.RED_MUSHROOM_BLOCK.getDefaultState().with(BlockHugeMushroom.NORTH, true);
                 }
 
-                if (lvt_2_1_.isTagged(BlockTags.PLANKS)) {
+                if (lvt_2_1_.isIn(BlockTags.PLANKS)) {
                     return Blocks.RED_MUSHROOM_BLOCK.getDefaultState();
                 }
 
                 if (lvt_2_1_ == Blocks.OAK_STAIRS) {
-                    return Blocks.ACACIA_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.ACACIA_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.COBBLESTONE_STAIRS) {
-                    return Blocks.ACACIA_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.getValue(BlockStairs.FACING));
+                    return Blocks.ACACIA_STAIRS.getDefaultState().with(BlockStairs.FACING, p_getBiomeSpecificBlockState_1_.get(BlockStairs.FACING));
                 }
 
                 if (lvt_2_1_ == Blocks.GRAVEL) {
@@ -1783,7 +1783,7 @@ public class VillagePieces {
 
         protected void placeTorch(IWorld p_placeTorch_1_, EnumFacing p_placeTorch_2_, int p_placeTorch_3_, int p_placeTorch_4_, int p_placeTorch_5_, MutableBoundingBox p_placeTorch_6_) {
             if (!this.isZombieInfested) {
-                this.setBlockState(p_placeTorch_1_, Blocks.WALL_TORCH.getDefaultState().withProperty(BlockTorchWall.field_196532_a, p_placeTorch_2_), p_placeTorch_3_, p_placeTorch_4_, p_placeTorch_5_, p_placeTorch_6_);
+                this.setBlockState(p_placeTorch_1_, Blocks.WALL_TORCH.getDefaultState().with(BlockTorchWall.HORIZONTAL_FACING, p_placeTorch_2_), p_placeTorch_3_, p_placeTorch_4_, p_placeTorch_5_, p_placeTorch_6_);
             }
 
         }
@@ -1810,7 +1810,7 @@ public class VillagePieces {
             this.villagePiecesLimit = p_i2098_3_;
         }
 
-        public boolean canSpawnMoreVillagePiecesOfType(int p_canSpawnMoreVillagePiecesOfType_1_) {
+        public boolean canSpawnMoreVillagePiecesOfType() {
             return this.villagePiecesLimit == 0 || this.villagePiecesSpawned < this.villagePiecesLimit;
         }
 
